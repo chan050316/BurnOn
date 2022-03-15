@@ -1,0 +1,26 @@
+{
+  "name": "burnon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chan050316/BurnOn.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chan050316/BurnOn/issues"
+  },
+  "homepage": "https://github.com/chan050316/BurnOn#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "pug": "^3.0.2"
+  }
+}
