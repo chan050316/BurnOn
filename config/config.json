@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "kingzone1234.",
+    "database": "BurnOn",
+    "host": "burnon.cyp8vmv5yeru.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
