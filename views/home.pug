@@ -5,7 +5,12 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Home
+    link(rel="stylesheet", href="styles/reset.css")
+    link(rel="stylesheet", href="styles/fonts.css")
     link(rel="stylesheet", href="styles/home.css")
   body 
-    h1 Hello
-  script(src="javascripts/index.js")
+    div.titleCover(style="display:none") BurnOn
+    -for(i=0; i<3;  i++)
+      div.titleBox
+        div.titleBox_title.titleBox_titleJS
+  script(src="javascripts/home.js")
