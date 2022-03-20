@@ -1,0 +1,71 @@
+body {
+  display: flex;
+}
+
+.bodyBox-sideMenu {
+  width: 8vw;
+  height: 100vh;
+}
+
+.bodyBox-sideMenu .button {
+  background-color: #282828;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.bodyBox-sideMenu .button .material-icons {
+  color: white;
+}
+
+.bodyBox-sideMenu .btn-back {
+  margin: 40px 0 0 40px;
+}
+
+.bodyBox-sideMenu .btn-back .icon-back {
+  color: white;
+  margin-left: 14.5px;
+  font-size: 20px;
+}
+
+.bodyBox-sideMenu .btn-menu {
+  margin: 40px 0 0 40px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-hamburger {
+  margin-left: 9px;
+  font-size: 23px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-music {
+  margin-left: 9px;
+  font-size: 23px;
+}
+
+.bodyBox-sideMenu .btn-menu .icon-volume {
+  margin-left: 9.5px;
+  font-size: 22px;
+}
+
+.bodyBox-center {
+  width: 84vw;
+  height: 100vh;
+}
+
+.titleBox {
+  background-color: gray;
+  height: 15vh;
+  font-family: Cafe24SsurroundAir;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.titleBox .mainTitle {
+}
+
+.titleBox .subTitle {
+}

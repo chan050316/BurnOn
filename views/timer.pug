@@ -5,5 +5,22 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title timer
+    link(rel="stylesheet", href="styles/reset.css")
+    link(rel="stylesheet", href="styles/fonts.css")
+    link(rel="stylesheet", href="styles/timer.css")
+    link(rel="stylesheet", href="http://fonts.googleapis.com/icon?family=Material+Icons")
   body 
-    h1 timer
+    div.bodyBox-sideMenu
+      div.button.btn-back
+        span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Timer
+    div.bodyBox-sideMenu
+      div.button.btn-menu
+        span.material-icons.icon-hamburger &#xe5d2;
+      div.button.btn-menu
+        span.material-icons.icon-music &#xe405;
+      div.button.btn-menu
+        span.material-icons.icon-volume &#xe050;
