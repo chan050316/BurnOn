@@ -2,18 +2,18 @@ body {
   display: flex;
 }
 
-.bodyBox-sideMenu {
-  width: 8vw;
-  height: 100vh;
-}
-
-.bodyBox-sideMenu .button {
+.button {
   background-color: #282828;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
+}
+
+.bodyBox-sideMenu {
+  width: 8vw;
+  height: 100vh;
 }
 
 .bodyBox-sideMenu .button .material-icons {
@@ -54,9 +54,8 @@ body {
   height: 100vh;
 }
 
-.titleBox {
-  background-color: gray;
-  height: 15vh;
+.bodyBox-center .titleBox {
+  height: 10vh;
   font-family: Cafe24SsurroundAir;
   display: flex;
   flex-direction: column;
@@ -65,7 +64,82 @@ body {
 }
 
 .titleBox .mainTitle {
+  font-size: 35px;
 }
 
 .titleBox .subTitle {
+  color: #c4c4c4;
+  font-size: 14px;
+}
+
+.bodyBox-center .timerBox {
+  height: 63vh;
+}
+
+.bodyBox-center .qouteBox {
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bodyBox-center .controlerBox {
+  height: 21vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controlerBox .minuteBox {
+  width: 64%;
+  height: 10%;
+  display: flex;
+  color: #c4c4c4;
+  margin-bottom: 5px;
+}
+
+.controlerBox .minuteBox .endMinute {
+  margin-left: auto;
+}
+
+.controlerBox .minuteLine {
+  background-color: #c2c2c2;
+  height: 5px;
+  width: 64.5%;
+  border-radius: 5px;
+}
+
+.controlerBox .minuteLine .minuteLineFill {
+  height: 100%;
+  width: 40%;
+  background-color: #474747;
+  border-radius: 5px;
+}
+
+.controlerBox .minuteControlBtnBox {
+  height: 100%;
+  width: 35vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controlerBox .minuteControlBtnBox .icon-skip {
+  font-size: 40px;
+}
+
+.controlerBox .minuteControlBtnBox .btn-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 calc(17.5vw - 67px);
+  box-shadow: 1px 2px 8px #9c9c9c, -1px 2px 8px #9c9c9c;
+}
+
+.controlerBox .minuteControlBtnBox .btn-play .icon-pause {
+  color: white;
+}
+
+.controlerBox .minuteControlBtnBox .btn-play .icon-play {
+  font-size: 27px;
 }
