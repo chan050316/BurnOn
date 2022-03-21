@@ -5,5 +5,46 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title pomodoro
+    link(rel="stylesheet", href="styles/reset.css")
+    link(rel="stylesheet", href="styles/fonts.css")
+    link(rel="stylesheet", href="styles/defaultPageDesign.css")
+    link(rel="stylesheet", href="styles/pomodoro.css")
+    link(rel="stylesheet", href="http://fonts.googleapis.com/icon?family=Material+Icons")
   body 
-    h1 pomodoro
+    body 
+    div.intro-box#intro-box
+      -for(i=0; i<3; i++)
+        div.introText-box
+          div.intro-text
+          div.introBtn.introBtnJS
+    div.bodyBox-sideMenu
+      div.button.btn-back
+        span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Timer
+      div.timerBox
+      div.qouteBox 
+        div.qoute Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+        div.writer -Lorem Ipsum-
+      div.controlerBox
+        div.minuteBox
+          div 00:00
+          div.endMinute 00:00
+        div.minuteLine
+          div.minuteLineFill
+        div.minuteControlBtnBox
+          span.material-icons.icon-skip &#xe045;
+          div.button.btn-play#btn-playJS
+            span.material-icons.icon-pause#icon-playJS &#xe034;
+          span.material-icons.icon-skip &#xe044;
+    div.bodyBox-sideMenu
+      div.button.btn-menu
+        span.material-icons.icon-hamburger &#xe5d2;
+      div.button.btn-menu
+        span.material-icons.icon-music &#xe405;
+      div.button.btn-menu
+        span.material-icons.icon-volume &#xe050;
+    script(src="javascripts/defaultPageDesign.js")
+    script(src="javascripts/pomodoro.js")
