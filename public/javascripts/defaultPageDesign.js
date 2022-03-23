@@ -1,4 +1,5 @@
 const bodyBoxSideMenu = document.querySelector("#bodyBox-sideMenuJS");
+const sideBarBlank = document.querySelector("#sideBar__blank");
 const closeSideBar = document.querySelector("#closeSideBarJS");
 const btnPlay = document.querySelector("#btn-playJS");
 const iconPlay = document.querySelector("#icon-playJS");
@@ -39,4 +40,4 @@ btnPlay.addEventListener("click", playingMusic);
 btnMenu.forEach(btn => {
   btn.addEventListener("click", sideBar__open);
 });
-closeSideBar.addEventListener("click", sideBar__close);
+sideBarBlank.addEventListener("click", sideBar__close);

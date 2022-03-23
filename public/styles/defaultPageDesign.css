@@ -67,32 +67,37 @@ body {
   width: 5vw;
   height: 5vw;
   justify-content: center;
+  color: #f5f5f5;
 }
 
 .sideBar .checked {
   background-color: #282828;
 }
 
-.sideBar .sideBar__btn-menu:hover {
-  background-color: #282828;
+.sideBar .sideBar__btn-menu:hover .sideBar__icon {
+  color: #e97388;
 }
 
 .sideBar .sideBar__btn-menu .sideBar__icon {
   margin: 0;
 }
 
-.sideBar .sideBar__blanck {
+.sideBar .sideBar__blank {
   height: calc(100vh - 15vw);
   background-color: #050505;
   width: 5vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
-.sideBar .sideBar__blanck .closeSideBar {
-  color: white;
-  cursor: pointer;
+.sideBar .sideBar__blank .closeSideBar {
+  color: #f5f5f5;
+}
+
+.sideBar .sideBar__blank:hover .closeSideBar {
+  color: #e97388;
 }
 
 .option-hamburger {
