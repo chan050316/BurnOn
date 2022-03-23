@@ -1,5 +1,7 @@
 body {
   display: flex;
+  font-family: Cafe24SsurroundAir;
+  background-color: #f5f5f5;
 }
 
 .button {
@@ -18,7 +20,7 @@ body {
 }
 
 .bodyBox-sideMenu .button .material-icons {
-  color: white;
+  color: #f5f5f5;
 }
 
 .bodyBox-sideMenu .btn-back {
@@ -26,7 +28,7 @@ body {
 }
 
 .bodyBox-sideMenu .btn-back .icon-back {
-  color: white;
+  color: #f5f5f5;
   margin-left: 14.5px;
   font-size: 20px;
 }
@@ -50,6 +52,55 @@ body {
   font-size: 22px;
 }
 
+.sideBar {
+  position: absolute;
+  right: 0;
+  background-color: #282828;
+  width: 28vw;
+  display: flex;
+}
+
+.sideBar .sideBar__btn-menu {
+  border-radius: 0;
+  background-color: #050505;
+  margin: 0;
+  width: 5vw;
+  height: 5vw;
+  justify-content: center;
+}
+
+.sideBar .checked {
+  background-color: #282828;
+}
+
+.sideBar .sideBar__btn-menu:hover {
+  background-color: #282828;
+}
+
+.sideBar .sideBar__btn-menu .sideBar__icon {
+  margin: 0;
+}
+
+.sideBar .sideBar__blanck {
+  height: calc(100vh - 15vw);
+  background-color: #050505;
+  width: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBar .sideBar__blanck .closeSideBar {
+  color: white;
+  cursor: pointer;
+}
+
+.option-hamburger {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
+
 .bodyBox-center {
   width: 84vw;
   height: 100vh;
@@ -57,7 +108,6 @@ body {
 
 .bodyBox-center .titleBox {
   height: 10vh;
-  font-family: Cafe24SsurroundAir;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -136,12 +186,13 @@ body {
   align-items: center;
   margin: 0 calc(17.5vw - 67px);
   box-shadow: 1px 2px 8px #9c9c9c, -1px 2px 8px #9c9c9c;
-}
-
-.controlerBox .minuteControlBtnBox .btn-play .icon-pause {
   color: white;
 }
 
 .controlerBox .minuteControlBtnBox .btn-play .icon-play {
   font-size: 27px;
+}
+
+.hidden {
+  display: none;
 }
