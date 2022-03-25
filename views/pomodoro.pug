@@ -40,12 +40,20 @@ html(lang="en")
             span.material-icons.icon-pause#icon-playJS &#xe034;
           span.material-icons.icon-skip &#xe044;
     div.bodyBox-sideMenu#bodyBox-sideMenuJS
-      div.button.btn-menu.sideBar__btn-menu
-        span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
-      div.button.btn-menu.sideBar__btn-menu
-        span.icon-music.material-icons.sideBar__icon &#xe405;
-      div.button.btn-menu.sideBar__btn-menu
-        span.icon-volume.material-icons.sideBar__icon &#xe050;
-      div.sideBar__blanck
+      div.option-buttons
+        div.button.btn-menu
+          span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
+        div.button.btn-menu
+          span.icon-music.material-icons.sideBar__icon &#xe405;
+        div.button.btn-menu
+          span.icon-volume.material-icons.sideBar__icon &#xe050;
+        div.sideBar__blank#sideBar__blankJS
+          span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
+      div.option-hamburger#option-hamburgerJS.hidden
+        -const PAGENAME = ["Timer", "Pomodoro", ""];
+        -for(i in PAGENAME)
+          div.movePageBox #{PAGENAME[i]}
+      div.option-music#option-musicJS.hidden
+      div.option-volume#option-volumeJS.hidden
     script(src="javascripts/defaultPageDesign.js")
     script(src="javascripts/pomodoro.js")
