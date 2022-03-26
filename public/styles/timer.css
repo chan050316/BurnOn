@@ -1,0 +1,49 @@
+.timerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerBox .decoration {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 433px;
+}
+
+.timerBox .decoration .decoration_string {
+  background-color: rgba(71, 71, 71, 0.92);
+  height: 3px;
+  width: 23px;
+}
+
+.timerBox .decoration:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.timerBox .backGroundCircle {
+  position: absolute;
+  width: 387px;
+  height: 387px;
+  background-color: rgba(156, 156, 156, 0.5);
+  border-radius: 50%;
+}
+
+.timerBox .backGroundCircle .showPercenttCircle {
+}
+
+.timerBox .insideWhiteCircle {
+  position: absolute;
+  width: 377px;
+  height: 377px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .insideImageCircle {
+  position: absolute;
+  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
