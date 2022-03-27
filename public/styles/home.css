@@ -21,6 +21,7 @@ body .titleBox {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .titleBox:nth-child(2) {

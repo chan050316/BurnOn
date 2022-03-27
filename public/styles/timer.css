@@ -22,26 +22,77 @@
 }
 
 .timerBox .backGroundCircle {
-  position: absolute;
-  width: 387px;
+  position: relative;
+  width: calc(387px / 2);
   height: 387px;
-  background-color: rgba(156, 156, 156, 0.5);
-  border-radius: 50%;
+  background-color: #c9c9c9;
+  border-radius: 387px 0 0 387px;
+  overflow: hidden;
+  display: flex;
 }
 
-.timerBox .backGroundCircle .showPercenttCircle {
+.timerBox .leftBack {
+  z-index: 7;
+}
+
+.timerBox .rightBack {
+  z-index: 8;
+  border-radius: 0 387px 387px 0;
+}
+
+.timerBox .backGroundCircle .showPercentCircle {
+  position: absolute;
+  width: calc(387px / 2);
+  height: 387px;
+  z-index: 5;
+  background-color: #474747;
+}
+
+.timerBox .backGroundCircle .left {
+  z-index: 6;
+  animation: showPercent__left 30s linear both;
+  transform-origin: 100% 50%;
+  animation-delay: 30s;
+  transform: rotate(180deg);
+}
+
+@keyframes showPercent__left {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .backGroundCircle .right {
+  z-index: 6;
+  transform-origin: 0% 50%;
+  animation: showPercent__right 30s linear both;
+}
+
+@keyframes showPercent__right {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .timerBox .insideWhiteCircle {
   position: absolute;
-  width: 377px;
-  height: 377px;
+  z-index: 9;
+  width: 380px;
+  height: 380px;
   background-color: #f5f5f5;
   border-radius: 50%;
 }
 
 .timerBox .insideImageCircle {
   position: absolute;
+  z-index: 10;
   background-image: url(../images/407\ Dank\ on\ Twitter.png);
   height: 300px;
   width: 300px;
