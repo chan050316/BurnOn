@@ -47,3 +47,130 @@
     transform: scale(100%);
   }
 }
+
+.timerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerBox .backGroundCircle {
+  position: relative;
+  width: calc(387px / 2);
+  height: 387px;
+  background-color: #c9c9c9;
+  border-radius: 387px 0 0 387px;
+  overflow: hidden;
+  display: flex;
+}
+
+.timerBox .leftBack {
+  z-index: 7;
+}
+
+.timerBox .rightBack {
+  z-index: 8;
+  border-radius: 0 387px 387px 0;
+}
+
+.timerBox .backGroundCircle .showPercentCircle {
+  position: absolute;
+  width: calc(387px / 2);
+  height: 387px;
+  z-index: 5;
+  background-color: #474747;
+}
+
+.timerBox .backGroundCircle .left {
+  z-index: 6;
+  transform-origin: 100% 50%;
+  transform: rotate(180deg);
+  animation: showPercent__left 30s linear both;
+  animation-delay: 30s;
+}
+
+@keyframes showPercent__left {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .backGroundCircle .right {
+  z-index: 6;
+  transform-origin: 0% 50%;
+  transform: rotate(180deg);
+  animation: showPercent__right 30s linear both;
+}
+
+@keyframes showPercent__right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .inside-WhiteCircle {
+  position: absolute;
+  z-index: 9;
+  width: 380px;
+  height: 380px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle {
+  position: absolute;
+  z-index: 10;
+  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  height: 373px;
+  width: 373px;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  animation: rotateCD 30s linear both;
+}
+
+@keyframes rotateCD {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.timerBox .inside-CDCircle-holeDesign1 {
+  position: absolute;
+  z-index: 11;
+  height: 95px;
+  width: 95px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign2 {
+  position: absolute;
+  z-index: 12;
+  height: 90px;
+  width: 90px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign3 {
+  position: absolute;
+  z-index: 13;
+  height: 85px;
+  width: 85px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-holeDesign4 {
+  position: absolute;
+  z-index: 14;
+  height: 80px;
+  width: 80px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.timerBox .inside-CDCircle-time {
+  position: absolute;
+  z-index: 15;
+}

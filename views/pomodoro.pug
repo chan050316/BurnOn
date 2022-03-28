@@ -12,19 +12,30 @@ html(lang="en")
     link(rel="stylesheet", href="styles/pomodoro.css")
   body 
     body 
-    div.intro-box#intro-box
-      -for(i=0; i<3; i++)
-        div.introText-box
-          div.intro-text
-          div.introBtn.introBtnJS
+    //- div.intro-box#intro-box
+    //-   -for(i=0; i<3; i++)
+    //-     div.introText-box
+    //-       div.intro-text
+    //-       div.introBtn.introBtnJS
     div.bodyBox-sideMenu
       div.button.btn-back
         span.material-icons.icon-back &#xe5e0;
     div.bodyBox-center
       div.titleBox
         div.mainTitle BurnOn
-        div.subTitle Timer
+        div.subTitle Pomodoro
       div.timerBox
+        div.backGroundCircle.leftBack
+          div.showPercentCircle.left
+        div.backGroundCircle.rightBack
+          div.showPercentCircle.right
+        div.inside-WhiteCircle
+        div.inside-CDCircle
+        div.inside-CDCircle-holeDesign1
+        div.inside-CDCircle-holeDesign2
+        div.inside-CDCircle-holeDesign3
+        div.inside-CDCircle-holeDesign4
+        div.inside-CDCircle-time 40m
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
