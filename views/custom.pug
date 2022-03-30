@@ -5,5 +5,37 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title custom
+    link(rel="stylesheet", href="http://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="styles/reset.css")
+    link(rel="stylesheet", href="styles/fonts.css")
+    link(rel="stylesheet", href="styles/defaultPageDesign.css")
+    link(rel="stylesheet", href="styles/custom.css")
   body 
-    h1 custom
+    div.bodyBox-sideMenu
+      div.button.btn-back
+        span.material-icons.icon-back &#xe5e0;
+    div.bodyBox-center
+      div.titleBox
+        div.mainTitle BurnOn
+        div.subTitle Custom
+      div.customOptionBox
+        div.customOption-title 
+          div.customOption-title__text Research custom option
+        div.customOption-options
+        -const options = ["주요 일정 표시(D-day)", "주요 일정 표시(D-day)", "주요 일정 표시(D-day)", "주요 일정 표시(D-day)"]
+        -for(j=0; j < options.length; j++)
+          div.customOption-options__box
+            div.customOption-options__text #{options[j]}
+            div.customOption-options__button
+              div.customOption-options__button__text use
+    div.bodyBox-sideMenu#bodyBox-sideMenuJS
+      div.option-buttons
+        div.button.btn-menu
+          span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
+        div.sideBar__blank#sideBar__blankJS
+          span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
+      div.option-hamburger#option-hamburgerJS.hidden
+        -const PAGENAME = ["Timer", "Pomodoro", ""];
+        -for(i in PAGENAME)
+          div.movePageBox #{PAGENAME[i]}
+    script(src="javascripts/custom.js")
