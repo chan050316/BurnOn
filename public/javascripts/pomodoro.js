@@ -9,6 +9,7 @@ const INTROTEXTS = [
   "뽀모도로가 처음이신가요?",
   "뽀모도로란 루틴을 생성해주는 타이머에요!",
   "지금부터 시작해볼까요?",
+  "시간을 입력해 주세요!",
 ];
 for (i in INTROTEXTS) {
   introText[i].innerHTML = INTROTEXTS[i];
