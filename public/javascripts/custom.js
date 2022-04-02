@@ -1,10 +1,15 @@
 const bodyEl = document.querySelector("body");
-const bodyBoxSideMenu = document.querySelector("#bodyBox-sideMenuJS");
-const sideBarBlank = document.querySelector("#sideBar__blankJS");
-const closeSideBarIcon = document.querySelector("#closeSideBarJS");
-const btnMenu = document.querySelector(".btn-menu");
-const optionHamburge = document.querySelector("#option-hamburgerJS");
-const movePageBox = document.querySelectorAll(".movePageBox");
+const bodyBoxSideMenu = bodyEl.querySelector("#bodyBox-sideMenuJS");
+const sideBarBlank = bodyBoxSideMenu.querySelector("#sideBar__blankJS");
+const closeSideBarIcon = sideBarBlank.querySelector("#closeSideBarJS");
+const btnMenu = bodyBoxSideMenu.querySelector(".btn-menu");
+const optionHamburge = bodyBoxSideMenu.querySelector("#option-hamburgerJS");
+const movePageBox = optionHamburge.querySelectorAll(".movePageBox");
+const optionTextBoxs = bodyEl.querySelectorAll(".customOption-options__box");
+const optionBtns = bodyEl.querySelectorAll(".customOption-options__button");
+const optionBtnTexts = bodyEl.querySelectorAll(
+  ".customOption-options__button__text"
+);
 
 function sideBar__open() {
   bodyBoxSideMenu.classList.add("sideBar");
@@ -31,7 +36,38 @@ function closeSideBarIcon__out() {
   closeSideBarIcon.style.color = "#f5f5f5";
 }
 
+function textDecorating() {
+  const TEXTWIDTH = this.firstChild.offsetWidth;
+  this.firstChild.nextSibling.style.width = TEXTWIDTH + "px";
+}
+
+function textDecreasing() {
+  this.firstChild.nextSibling.style.width = "0px";
+}
+
+function clickingBtn() {
+  if (this.className.indexOf("checked") === -1) {
+    optionBtns.forEach(btn => {
+      btn.classList.remove("checked");
+      btn.firstChild.innerHTML = "use";
+    });
+    this.classList.add("checked");
+    this.firstChild.innerHTML = "disuse";
+    console.log(this);
+  } else {
+    this.classList.remove("checked");
+    this.firstChild.innerHTML = "use";
+  }
+}
+
 btnMenu.addEventListener("click", sideBar__open);
 sideBarBlank.addEventListener("click", sideBar__close);
 sideBarBlank.addEventListener("mouseover", closeSideBarIcon__over);
 sideBarBlank.addEventListener("mouseout", closeSideBarIcon__out);
+optionTextBoxs.forEach(boxEl => {
+  boxEl.addEventListener("mouseover", textDecorating);
+  boxEl.addEventListener("mouseout", textDecreasing);
+});
+optionBtns.forEach(Btn => {
+  Btn.addEventListener("click", clickingBtn);
+});

@@ -13,7 +13,14 @@
   margin-top: 80px;
 }
 
-.bodyBox-center .customOptionBox .customOption-title {
+.bodyBox-center .customOptionBox .customOptionBoxHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.customOptionBox .customOptionBoxHeader .customOption-title {
   height: 30px;
   width: fit-content;
   margin-bottom: 20px;
@@ -22,11 +29,28 @@
   margin-left: 0;
 }
 
-.bodyBox-center .customOptionBox .customOption-title .customOption-title__text {
+.customOptionBox
+  .customOptionBoxHeader
+  .customOption-title
+  .customOption-title__text {
   font-size: 25px;
 }
 
-.bodyBox-center .customOptionBox .customOption-options__box {
+.customOptionBox .customOptionBoxHeader .enterBtn {
+  background-color: #e97388;
+  width: 130px;
+  height: 40px;
+  color: #f5f5f5;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.customOptionBox .customOptionBoxHeader .enterBtn:hover {
+  cursor: pointer;
+}
+
+.customOptionBox .customOption-options__box {
   border: black solid 1.5px;
   width: calc(100% - 4px);
   height: 100px;
@@ -37,15 +61,23 @@
   align-items: center;
 }
 
+.customOption-options {
+  width: 770px;
+}
+
 .customOption-options__box .customOption-options__text {
   font-size: 18px;
   margin-left: 40px;
 }
 .customOption-options__box .customOption-options__text__decoration {
   position: absolute;
+  z-index: -10;
   background-color: rgba(255, 0, 0, 0.5);
-  height: 20px;
-  width: 20px;
+  margin-top: 10px;
+  margin-left: 40px;
+  height: 10px;
+  width: 0px;
+  transition-duration: 1s;
 }
 
 .customOption-options__box .customOption-options__button {
@@ -61,6 +93,10 @@
 
 .customOption-options__box .customOption-options__button:hover {
   cursor: pointer;
+}
+
+.customOption-options__box .checked {
+  background-color: #e97388;
 }
 
 .customOption-options__box

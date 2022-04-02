@@ -19,16 +19,18 @@ html(lang="en")
         div.mainTitle BurnOn
         div.subTitle Custom
       div.customOptionBox
-        div.customOption-title 
-          div.customOption-title__text Research custom option
+        div.customOptionBoxHeader
+          div.customOption-title 
+            div.customOption-title__text Research custom option
+          div.enterBtn apply
         div.customOption-options
-        -const options = ["주요 일정 표시(D-day)", "급식 표시", "잡학사정", "한강물 온도 표시", "현재 시간 표시", "주요 일정 표시(D-day)", "주요 일정 표시(D-day)"]
-        -for(j=0; j < options.length; j++)
-          div.customOption-options__box
-            div.customOption-options__text #{options[j]}
-            div.customOption-options__text__decoration
-            div.customOption-options__button
-              div.customOption-options__button__text use
+          -const options = ["주요 일정 표시(D-day)", "급식 표시", "잡학사전", "한강물 온도 표시", "현재 시간 표시", "주요 일정 표시(D-day)", "주요 일정 표시(D-day)"]
+          -for(j=0; j < options.length; j++)
+            div.customOption-options__box
+              div.customOption-options__text #{options[j]}
+              div.customOption-options__text__decoration
+              div.customOption-options__button
+                div.customOption-options__button__text use
     div.bodyBox-sideMenu#bodyBox-sideMenuJS
       div.option-buttons
         div.button.btn-menu
