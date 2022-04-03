@@ -1,3 +1,6 @@
+const express = require("express");
+const app = express();
+
 const bodyEl = document.querySelector("body");
 const bodyBoxSideMenu = document.querySelector("#bodyBox-sideMenuJS");
 const sideBarBlank = document.querySelector("#sideBar__blankJS");
