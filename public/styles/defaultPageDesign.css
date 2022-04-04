@@ -23,11 +23,12 @@ body {
   color: #f5f5f5;
 }
 
-.bodyBox-sideMenu .btn-back {
+.bodyBox-sideMenu form .btn-back {
   margin: 40px 0 0 40px;
+  border: none;
 }
 
-.bodyBox-sideMenu .btn-back .icon-back {
+.bodyBox-sideMenu form .btn-back .icon-back {
   color: #f5f5f5;
   margin-left: 14.5px;
   font-size: 20px;
@@ -107,20 +108,25 @@ body {
   height: 100vh;
 }
 
-.option-hamburger .movePageBox {
-  color: #f5f5f5;
-  font-size: 30px;
-  height: calc(15vh - 2px);
-  line-height: calc(15vh - 2px);
-  text-align: center;
+.option-hamburger form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh / 3 - 2px);
   width: 85%;
   border-bottom: #f5f5f5 solid 1px;
 }
 
-.option-hamburger .movePageBox:nth-child(3) {
-  height: calc(70vh - 2px);
-  line-height: calc(70vh - 2px);
+.option-hamburger form:nth-child(3) {
   border: none;
+}
+
+.option-hamburger form .movePageBox {
+  height: 100%;
+  width: 100%;
+  background: none;
+  color: #f5f5f5;
+  font-size: 30px;
 }
 
 .option-hamburger .movePageBox:hover {

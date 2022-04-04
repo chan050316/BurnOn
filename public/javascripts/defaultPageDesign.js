@@ -1,6 +1,3 @@
-const express = require("express");
-const app = express();
-
 const bodyEl = document.querySelector("body");
 const bodyBoxSideMenu = document.querySelector("#bodyBox-sideMenuJS");
 const sideBarBlank = document.querySelector("#sideBar__blankJS");
@@ -9,7 +6,6 @@ const btnPlay = document.querySelector("#btn-playJS");
 const iconPlay = document.querySelector("#icon-playJS");
 const btnMenu = document.querySelectorAll(".btn-menu");
 const optionHamburge = document.querySelector("#option-hamburgerJS");
-const movePageBox = document.querySelectorAll(".movePageBox");
 const optionMusic = document.querySelector("#option-musicJS");
 const optionSound = document.querySelector("#option-volumeJS");
 

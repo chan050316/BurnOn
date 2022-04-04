@@ -12,8 +12,9 @@ html(lang="en")
     link(rel="stylesheet", href="styles/timer.css")
   body 
     div.bodyBox-sideMenu
-      div.button.btn-back
-        span.material-icons.icon-back &#xe5e0;
+      form(action="/")
+        button.button.btn-back
+          span.material-icons.icon-back &#xe5e0;
     div.bodyBox-center
       div.titleBox
         div.mainTitle BurnOn
@@ -54,9 +55,11 @@ html(lang="en")
         div.sideBar__blank#sideBar__blankJS
           span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
       div.option-hamburger#option-hamburgerJS.hidden
-        -const PAGENAME = ["Timer", "Pomodoro", ""];
+        -const PAGELINK = ["timer", "pomodoro", "custom"];
+        -const PAGENAME = ["Timer", "Pomodoro", "Custom"];
         -for(i in PAGENAME)
-          div.movePageBox #{PAGENAME[i]}
+          form(action="/" + PAGELINK[i], method="get") 
+            button.movePageBox #{PAGENAME[i]}
       div.option-music#option-musicJS.hidden
       div.option-volume#option-volumeJS.hidden
     script(src="javascripts/defaultPageDesign.js")

@@ -15,22 +15,21 @@ body .titleCover {
   font-size: 75px;
 }
 
-body .titleBox {
+body form .titleBox {
   width: calc(100vw / 3);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
-.titleBox:nth-child(2) {
+form:nth-child(2) .titleBox {
   background-image: url(../images/407\ Dank\ on\ Twitter.png);
 }
-.titleBox:nth-child(3) {
+form:nth-child(3) .titleBox {
   background-image: url(../images/407\ Dank\ on\ Twitter.png);
 }
-.titleBox:nth-child(4) {
+form:nth-child(4) .titleBox {
   background-image: url(../images/407\ Dank\ on\ Twitter.png);
 }
 
@@ -42,6 +41,7 @@ body .titleBox {
   text-align: center;
   line-height: 100vh;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 
 .titleBox_title:hover {
