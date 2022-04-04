@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const indexRouter = require("./routes/index");
 
-const PORTNUM = 3000;
+const PORTNUM = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
