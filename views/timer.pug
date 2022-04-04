@@ -30,6 +30,27 @@ html(lang="en")
           div.showPercentCircle.right
         div.insideWhiteCircle
         div.insideImageCircle
+        div.insideImageOveray
+          div.timer
+            div.dash
+            div.timerTimeBox
+              div.blink
+              -for(i = 0; i < 2; i++)
+                -for(j = 0; j < 10; j++)
+                  div.timerHour.timerTime #{i}#{j}h 
+              div.blink
+            div.timerTimeBox
+              div.blink
+              -for(a = 0; a < 6; a++)
+                -for(b = 0; b < 10; b++)
+                  div.timerMinute.timerTime #{a}#{b}m
+              div.blink
+            div.dash
+          div.timerControler
+            div.timerControl
+              canvas#startIconJS(width="20px", height="20px")
+            div.timerControl
+              canvas#stopIconJS(width="20px", height="20px")
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
@@ -63,3 +84,4 @@ html(lang="en")
       div.option-music#option-musicJS.hidden
       div.option-volume#option-volumeJS.hidden
     script(src="javascripts/defaultPageDesign.js")
+    script(src="javascripts/canvas.js")

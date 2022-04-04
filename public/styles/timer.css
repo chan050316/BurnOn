@@ -98,3 +98,78 @@
   width: 300px;
   border-radius: 50%;
 }
+
+.timerBox .insideImageOveray {
+  position: absolute;
+  z-index: 10;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(14, 14, 51, 0.27);
+}
+
+.timerBox .insideImageOveray .timer {
+  width: 240px;
+  height: 80px;
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.timer .dash {
+  width: 15px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: #f5f5f5;
+}
+
+.timer .timerTimeBox {
+  overflow-y: scroll;
+  height: 100%;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  scroll-snap-type: y mandatory;
+}
+.timer .timerTimeBox::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.timer .timerTimeBox .blink {
+  height: 30px;
+}
+
+.timer .timerTimeBox .timerTime {
+  scroll-snap-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: 100;
+  text-align: end;
+}
+
+.timerBox .insideImageOveray .timerControler {
+  width: 110px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timerControler .timerControl {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: #f5f5f5 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerControler .timerControl:hover {
+  cursor: pointer;
+}
