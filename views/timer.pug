@@ -31,26 +31,32 @@ html(lang="en")
         div.insideWhiteCircle
         div.insideImageCircle
         div.insideImageOveray
-          div.timer
+          div.timer#timerJS
             div.dash
-            div.timerTimeBox
+            input.timerNumJS(type="number")
+            div.timerTimeBox.timerTimeBoxJS.hidden
               div.blink
               -for(i = 0; i < 2; i++)
                 -for(j = 0; j < 10; j++)
-                  div.timerHour.timerTime #{i}#{j}h 
+                  div.timerHourJS.timerTime #{i}#{j}
               div.blink
-            div.timerTimeBox
+            div.sign h
+            input.timerNumJS(type="number")
+            div.timerTimeBox.timerTimeBoxJS.hidden
               div.blink
               -for(a = 0; a < 6; a++)
                 -for(b = 0; b < 10; b++)
-                  div.timerMinute.timerTime #{a}#{b}m
+                  div.timerMinuteJS.timerTime #{a}#{b}
               div.blink
+            div.sign m
             div.dash
           div.timerControler
-            div.timerControl
+            div.timerControl#timerStart
               canvas#startIconJS(width="20px", height="20px")
-            div.timerControl
+            div.timerControl#timerStop(style="display:none;")
               canvas#stopIconJS(width="20px", height="20px")
+            div.timerControl#timerEnd
+              canvas#endIconJS(width="20px", height="20px")
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
@@ -85,3 +91,5 @@ html(lang="en")
       div.option-volume#option-volumeJS.hidden
     script(src="javascripts/defaultPageDesign.js")
     script(src="javascripts/canvas.js")
+    script(src="javascripts/timer.js")
+

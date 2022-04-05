@@ -129,27 +129,56 @@
   background-color: #f5f5f5;
 }
 
+.timer input {
+  width: 23%;
+  height: 31px;
+  font-size: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-align: end;
+  vertical-align: end;
+  line-height: 40px;
+  font-family: Cafe24SsurroundAir;
+  padding-top: 9px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .timer .timerTimeBox {
   overflow-y: scroll;
   height: 100%;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
-  scroll-snap-type: y mandatory;
 }
 .timer .timerTimeBox::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 
 .timer .timerTimeBox .blink {
-  height: 30px;
+  height: 25px;
+}
+
+.timer .timerTimeBox .blink:last-child {
+  height: 14px;
 }
 
 .timer .timerTimeBox .timerTime {
-  scroll-snap-align: center;
   color: white;
   font-size: 40px;
   font-weight: 100;
   text-align: end;
+}
+
+.timer .sign {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  transform: translateY(5px);
 }
 
 .timerBox .insideImageOveray .timerControler {
@@ -160,7 +189,7 @@
   align-items: center;
 }
 
-.timerControler .timerControl {
+.timerControl {
   width: 40px;
   height: 40px;
   border-radius: 50%;
