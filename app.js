@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const indexRouter = require("./routes/index");
 
-const PORTNUM = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
@@ -12,6 +12,6 @@ app.use("/", indexRouter);
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 
-app.listen(PORTNUM, () => {
-  console.log(PORTNUM + "에서 대기중");
+app.listen(PORT, () => {
+  console.log(PORT + "에서 대기중");
 });
