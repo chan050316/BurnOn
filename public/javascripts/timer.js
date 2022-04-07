@@ -1,6 +1,8 @@
 const timer = document.querySelector("#timerJS");
 const timerNums = timer.querySelectorAll(".timerNumJS");
 const timerTimeBoxs = timer.querySelectorAll(".timerTimeBoxJS");
+const timerHours = timer.querySelectorAll(".timerHourJS");
+const timerMinute = timer.querySelectorAll(".timerMinuteJS");
 const timerStart = document.querySelector("#timerStart");
 const timerStop = document.querySelector("#timerStop");
 const timerEnd = document.querySelector("#timerEnd");
@@ -10,6 +12,7 @@ function inputMaxlength() {
     this.value = this.value.substr(0, 2);
   }
 }
+
 function timerStarting() {
   const timerNumValue = [];
   timerStart.style.display = "none";
@@ -21,8 +24,13 @@ function timerStarting() {
   timerTimeBoxs.forEach(El => {
     El.classList.remove("hidden");
   });
-  console.log(timerNumValue);
   // 입력된게 숫자가 아니라면 알림 띄우기
+  timerHours.forEach(El => {
+    El.style.transform = `translateY(-${timerNumValue[0] * 40}px)`;
+  });
+  timerMinute.forEach(El => {
+    El.style.transform = `translateY(-${timerNumValue[1] * 40}px)`;
+  });
 }
 function timerStoping() {
   timerStart.style.display = "flex";
