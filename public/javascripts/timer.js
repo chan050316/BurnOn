@@ -37,7 +37,6 @@ function timerStarting() {
       timerNumValue[1] * 40 - countMinuteNum * 40
     }px)`;
   });
-  window.countHour = setInterval(countingHour, 60000);
   window.countMinute = setInterval(countingMinute, 1000);
 }
 function countingHour() {
@@ -53,11 +52,10 @@ function countingHour() {
   }
 }
 function countingMinute() {
-  if (countHourNum == timerNumValue[0]) {
-    console.log("Done...!");
-  } else if (countMinuteNum == timerNumValue[1]) {
+  if (countMinuteNum == timerNumValue[1]) {
     timerNumValue[1] = 60;
     countMinuteNum = 0;
+    countingHour();
   } else {
     countMinuteNum++;
     timerMinutes.forEach(El => {
