@@ -50,10 +50,14 @@
 
 .timerBox .backGroundCircle .left {
   z-index: 6;
-  animation: showPercent__left 30s linear both;
   transform-origin: 100% 50%;
   animation-delay: 30s;
   transform: rotate(180deg);
+  animation-name: showPercent__left;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
 }
 
 @keyframes showPercent__left {
@@ -69,7 +73,11 @@
 .timerBox .backGroundCircle .right {
   z-index: 6;
   transform-origin: 0% 50%;
-  animation: showPercent__right 30s linear both;
+  animation-name: showPercent__right;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
 }
 
 @keyframes showPercent__right {
@@ -132,7 +140,7 @@
 .timer input {
   width: 23%;
   height: 31px;
-  font-size: 40px;
+  font-size: 35px;
   border: none;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -141,7 +149,7 @@
   vertical-align: end;
   line-height: 40px;
   font-family: Cafe24SsurroundAir;
-  padding-top: 9px;
+  padding-top: 7px;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -169,17 +177,16 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .timer .timerTimeBox .timerTime {
   color: white;
-  font-size: 40px;
-  font-weight: 100;
+  font-size: 35px;
   text-align: end;
   transition-duration: 1s;
 }
 
 .timer .sign {
-  font-size: 40px;
+  font-size: 35px;
   color: white;
   text-align: center;
-  transform: translateY(5px);
+  transform: translateY(3px);
 }
 
 .timerBox .insideImageOveray .timerControler {

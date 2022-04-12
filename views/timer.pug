@@ -25,9 +25,9 @@ html(lang="en")
             div.decoration_string
             div.decoration_string
         div.backGroundCircle.leftBack
-          div.showPercentCircle.left
+          div.showPercentCircle.left#loadingLeftJS
         div.backGroundCircle.rightBack
-          div.showPercentCircle.right
+          div.showPercentCircle.right#loadingRightJS
         div.insideWhiteCircle
         div.insideImageCircle
         div.insideImageOveray
@@ -49,6 +49,12 @@ html(lang="en")
                   div.timerMinuteJS.timerTime #{a}#{b}
               div.blink
             div.sign m
+            div.timerTimeBox.timerTimeBoxJS.hidden
+              div.blink
+              -for(a = 0; a < 6; a++)
+                -for(b = 0; b < 10; b++)
+                  div.timerSecondJS.timerTime #{a}#{b}
+              div.blink
             div.dash
           div.timerControler
             div.timerControl#timerStart

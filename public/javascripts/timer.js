@@ -1,15 +1,20 @@
+const loadingLeft = document.querySelector("#loadingLeftJS");
+const loadingRight = document.querySelector("#loadingRightJS");
 const timer = document.querySelector("#timerJS");
 const timerNums = timer.querySelectorAll(".timerNumJS");
 const timerTimeBoxs = timer.querySelectorAll(".timerTimeBoxJS");
 const timerHours = timer.querySelectorAll(".timerHourJS");
 const timerMinutes = timer.querySelectorAll(".timerMinuteJS");
+const timerSeconds = timer.querySelectorAll(".timerSecondJS");
 const timerStart = document.querySelector("#timerStart");
 const timerStop = document.querySelector("#timerStop");
 const timerEnd = document.querySelector("#timerEnd");
 
-const timerNumValue = [];
+let timerNumValue = [];
 let countHourNum = 0;
 let countMinuteNum = 0;
+let countSecondNum = 0;
+let firtsConnect = true;
 
 function inputMaxlength() {
   if (this.value.length > 2) {
@@ -22,60 +27,103 @@ function timerStarting() {
   timerNums.forEach(El => {
     El.classList.add("hidden");
     timerNumValue.push(El.value);
+    console.log(timerNumValue);
   });
   timerTimeBoxs.forEach(El => {
     El.classList.remove("hidden");
   });
+
   // 입력된게 숫자가 아니라면 알림 띄우기
   timerHours.forEach(El => {
     El.style.transform = `translateY(-${
-      timerNumValue[0] * 40 - countHourNum * 40
+      timerNumValue[0] * 35 - countHourNum * 35
     }px)`;
   });
   timerMinutes.forEach(El => {
     El.style.transform = `translateY(-${
-      timerNumValue[1] * 40 - countMinuteNum * 40
+      timerNumValue[1] * 35 - countMinuteNum * 35
     }px)`;
   });
-  window.countMinute = setInterval(countingMinute, 1000);
-}
-function countingHour() {
-  countHourNum++;
-  if (countHourNum == timerNumValue[0]) {
-    console.log("Done...!");
-  } else {
-    timerHours.forEach(El => {
-      El.style.transform = `translateY(-${
-        60 * 40 - (60 - timerNumValue[0]) * 40 - 40 * countHourNum
-      }px)`;
+
+  loadingLeft.style.animationPlayState = "running";
+  loadingRight.style.animationPlayState = "running";
+
+  loadingLeft.style.animationName = "showPercent__left";
+  loadingLeft.style.animationDuration = `${Number(
+    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  )}s`;
+  loadingLeft.style.animationDelay = `${Number(
+    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  )}s`;
+  loadingRight.style.animationName = "showPercent__right";
+  loadingRight.style.animationDuration = `${Number(
+    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  )}s`;
+  if (firtsConnect === true) {
+    timerSeconds.forEach(El => {
+      El.style.transform = `translateY(-${60 * 35}px)`;
     });
+    countingMinute();
+    countingSecond();
+    firtsConnect = false;
+  }
+
+  window.countSecond = setInterval(countingSecond, 1000);
+}
+function countingSecond() {
+  if (countSecondNum == 60) {
+    countSecondNum = 0;
+    countingMinute();
+  } else {
+    countSecondNum++;
+    timerSeconds.forEach(El => {
+      El.style.transform = `translateY(-${60 * 35 - countSecondNum * 35}px)`;
+    });
+    console.log(countSecondNum);
   }
 }
 function countingMinute() {
   if (countMinuteNum == timerNumValue[1]) {
     timerNumValue[1] = 60;
+    timerNums[1].value = 60;
     countMinuteNum = 0;
     countingHour();
   } else {
     countMinuteNum++;
     timerMinutes.forEach(El => {
       El.style.transform = `translateY(-${
-        60 * 40 - (60 - timerNumValue[1]) * 40 - 40 * countMinuteNum
+        60 * 35 - (60 - timerNumValue[1]) * 35 - countMinuteNum * 35
+      }px)`;
+    });
+    console.log(countMinuteNum);
+  }
+}
+function countingHour() {
+  countHourNum++;
+  if (countHourNum - 1 == timerNumValue[0]) {
+    timerEnding();
+    alert("Done...!");
+  } else {
+    timerHours.forEach(El => {
+      El.style.transform = `translateY(-${
+        60 * 35 - (60 - timerNumValue[0]) * 35 - countHourNum * 35
       }px)`;
     });
   }
-  console.log(countMinuteNum);
 }
 function timerStoping() {
   timerStart.style.display = "flex";
   timerStop.style.display = "none";
+  loadingLeft.style.animationPlayState = "paused";
+  loadingRight.style.animationPlayState = "paused";
 
-  clearInterval(window.countHour);
-  clearInterval(window.countMinute);
+  timerNumValue = [];
+  clearInterval(window.countSecond);
 }
 function timerEnding() {
   timerNums.forEach(El => {
     El.classList.remove("hidden");
+    El.value = "";
   });
   timerTimeBoxs.forEach(El => {
     El.classList.add("hidden");
@@ -83,10 +131,19 @@ function timerEnding() {
   timerStart.style.display = "flex";
   timerStop.style.display = "none";
 
-  clearInterval(window.countHour);
-  clearInterval(window.countMinute);
+  loadingLeft.style.animationName = "init";
+  loadingRight.style.animationName = "init";
+
+  loadingLeft.style.transform = "rotate(180deg)";
+  loadingRight.style.transform = "rotate(180deg)";
+
+  timerNumValue = [];
+
+  clearInterval(window.countSecond);
   countHourNum = 0;
   countMinuteNum = 0;
+  countSecondNum = 0;
+  firtsConnect = true;
 }
 
 timerNums.forEach(input => {
