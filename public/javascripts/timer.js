@@ -1,3 +1,19 @@
+const notyf = new Notyf({
+  duration: 1000,
+  position: {
+    x: "left",
+    y: "bottom",
+  },
+  types: [
+    {
+      type: "error",
+      background: "red",
+      duration: 3000,
+      ripple: false,
+    },
+  ],
+});
+
 const loadingLeft = document.querySelector("#loadingLeftJS");
 const loadingRight = document.querySelector("#loadingRightJS");
 const timer = document.querySelector("#timerJS");
@@ -22,53 +38,64 @@ function inputMaxlength() {
   }
 }
 function timerStarting() {
-  timerStart.style.display = "none";
-  timerStop.style.display = "flex";
-  timerNums.forEach(El => {
-    El.classList.add("hidden");
-    timerNumValue.push(El.value);
-    console.log(timerNumValue);
-  });
-  timerTimeBoxs.forEach(El => {
-    El.classList.remove("hidden");
-  });
-
-  // 입력된게 숫자가 아니라면 알림 띄우기
-  timerHours.forEach(El => {
-    El.style.transform = `translateY(-${
-      timerNumValue[0] * 35 - countHourNum * 35
-    }px)`;
-  });
-  timerMinutes.forEach(El => {
-    El.style.transform = `translateY(-${
-      timerNumValue[1] * 35 - countMinuteNum * 35
-    }px)`;
-  });
-
-  loadingLeft.style.animationPlayState = "running";
-  loadingRight.style.animationPlayState = "running";
-
-  loadingLeft.style.animationName = "showPercent__left";
-  loadingLeft.style.animationDuration = `${Number(
-    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  )}s`;
-  loadingLeft.style.animationDelay = `${Number(
-    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  )}s`;
-  loadingRight.style.animationName = "showPercent__right";
-  loadingRight.style.animationDuration = `${Number(
-    (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  )}s`;
-  if (firtsConnect === true) {
-    timerSeconds.forEach(El => {
-      El.style.transform = `translateY(-${60 * 35}px)`;
+  if (timerNums[0].value < 24 && timerNums[1].value < 60) {
+    timerStart.style.display = "none";
+    timerStop.style.display = "flex";
+    timerNums.forEach(El => {
+      El.classList.add("hidden");
+      timerNumValue.push(El.value);
+      console.log(timerNumValue);
     });
-    countingMinute();
-    countingSecond();
-    firtsConnect = false;
-  }
+    timerTimeBoxs.forEach(El => {
+      El.classList.remove("hidden");
+    });
 
-  window.countSecond = setInterval(countingSecond, 1000);
+    // 입력된게 숫자가 아니라면 알림 띄우기
+    timerHours.forEach(El => {
+      El.style.transform = `translateY(-${
+        timerNumValue[0] * 35 - countHourNum * 35
+      }px)`;
+    });
+    timerMinutes.forEach(El => {
+      El.style.transform = `translateY(-${
+        timerNumValue[1] * 35 - countMinuteNum * 35
+      }px)`;
+    });
+
+    loadingLeft.style.animationPlayState = "running";
+    loadingRight.style.animationPlayState = "running";
+
+    loadingLeft.style.animationName = "showPercent__left";
+    loadingLeft.style.animationDuration = `${Number(
+      (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+    )}s`;
+    loadingLeft.style.animationDelay = `${Number(
+      (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+    )}s`;
+    loadingRight.style.animationName = "showPercent__right";
+    loadingRight.style.animationDuration = `${Number(
+      (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+    )}s`;
+    if (firtsConnect === true) {
+      timerSeconds.forEach(El => {
+        El.style.transform = `translateY(-${60 * 35}px)`;
+      });
+      countingMinute();
+      countingSecond();
+      firtsConnect = false;
+    }
+    window.countSecond = setInterval(countingSecond, 1000);
+  } else if (timerNums[0].value > 24) {
+    notyf.open({
+      type: "error",
+      message: "24시간보다 작게 입력해주세요ㅠㅠㅠ 후엥",
+    });
+  } else if (timerNums[1].value > 60) {
+    notyf.open({
+      type: "error",
+      message: "60분보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
+    });
+  }
 }
 function countingSecond() {
   if (countSecondNum == 60) {
