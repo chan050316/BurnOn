@@ -38,7 +38,7 @@ function inputMaxlength() {
   }
 }
 function timerStarting() {
-  if (timerNums[0].value < 24 && timerNums[1].value < 60) {
+  if (timerNums[0].value <= 24 && timerNums[1].value <= 60) {
     timerStart.style.display = "none";
     timerStop.style.display = "flex";
     timerNums.forEach(El => {

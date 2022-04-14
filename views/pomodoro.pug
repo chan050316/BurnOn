@@ -11,9 +11,29 @@ html(lang="en")
     link(rel="stylesheet", href="styles/defaultPageDesign.css")
     link(rel="stylesheet", href="styles/pomodoro.css")
   body 
-    div.intro-box#intro-box
+    div.intro-box#intro-inputs-box
+      div.intro-typingBox
+        div.intro-typing
+          div.inputs
+            input(type="number")
+            div.sign m
+            input(type="number")
+            div.sign s
+          div.subText 일할 시간을 입력해 주세요
+        div.whiteLine
+        div.intro-typing
+          div.inputs
+            input(type="number")
+            div.sign m
+            input(type="number")
+            div.sign s
+          div.subText 쉬는 시간을 입력해 주세요
+      div.intro-btnBox
+        div.introBtn#inputBtnJS
+    div.intro-box#intro-box(style="display:none")
       -for(i=0; i<4; i++)
         div.introText-box
+          div.material-icons.icon-intro-close.icon-intro-closeJS &#xe5cd;
           div.intro-text
           div.introBtn.introBtnJS
     div.bodyBox-sideMenu

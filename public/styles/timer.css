@@ -46,6 +46,7 @@
   height: 387px;
   z-index: 5;
   background-color: #474747;
+  opacity: 80%;
 }
 
 .timerBox .backGroundCircle .left {
@@ -92,8 +93,8 @@
 .timerBox .insideWhiteCircle {
   position: absolute;
   z-index: 9;
-  width: 380px;
-  height: 380px;
+  width: 370px;
+  height: 370px;
   background-color: #f5f5f5;
   border-radius: 50%;
 }
@@ -181,6 +182,14 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: end;
   transition-duration: 1s;
 }
+
+/* .timer .secondTimeBox {
+  height: 50%;
+}
+
+.timer .secondTimeBox .secondTime {
+  font-size: 20px;
+} */
 
 .timer .sign {
   font-size: 35px;

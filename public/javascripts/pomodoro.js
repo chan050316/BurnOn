@@ -1,7 +1,10 @@
+const introInputsBox = document.querySelector("#intro-inputs-box");
 const introBox = document.querySelector("#intro-box");
+const inputBtn = document.querySelector("#inputBtnJS");
 const introTextBox = document.querySelectorAll(".introText-box");
 const introBtn = document.querySelectorAll(".introBtnJS");
 const introText = document.querySelectorAll(".intro-text");
+const iconIntroClose = document.querySelectorAll(".icon-intro-closeJS");
 
 let page = 1;
 
@@ -14,10 +17,11 @@ const INTROTEXTS = [
 for (i in INTROTEXTS) {
   introText[i].innerHTML = INTROTEXTS[i];
 }
+//if cookie 가 없음 시 closeIntro 작동
 
 function sliding() {
   if (page === INTROTEXTS.length) {
-    introBox.style.display = "none";
+    introBox.remove();
   } else {
     introTextBox.forEach(Box => {
       Box.style.transform = `translateX(-${page * 100}vw)`;
@@ -25,7 +29,17 @@ function sliding() {
     page += 1;
   }
 }
+function closeIntro() {
+  introBox.remove();
+}
+function submitInputNum() {
+  introInputsBox.remove();
+}
 
 introBtn.forEach(btn => {
   btn.addEventListener("click", sliding);
 });
+iconIntroClose.forEach(icon => {
+  icon.addEventListener("click", closeIntro);
+});
+inputBtn.addEventListener("click", submitInputNum);
