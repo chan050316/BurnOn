@@ -5,6 +5,7 @@ const introTextBox = document.querySelectorAll(".introText-box");
 const introBtn = document.querySelectorAll(".introBtnJS");
 const introText = document.querySelectorAll(".intro-text");
 const iconIntroClose = document.querySelectorAll(".icon-intro-closeJS");
+const CDCircle = document.querySelector("#CDCircleJS");
 
 let page = 1;
 
@@ -32,8 +33,10 @@ function sliding() {
 function closeIntro() {
   introBox.remove();
 }
-function submitInputNum() {
+function startingPomodoro() {
   introInputsBox.remove();
+
+  CDCircle.style.animationPlayState = "running";
 }
 
 introBtn.forEach(btn => {
@@ -42,4 +45,4 @@ introBtn.forEach(btn => {
 iconIntroClose.forEach(icon => {
   icon.addEventListener("click", closeIntro);
 });
-inputBtn.addEventListener("click", submitInputNum);
+inputBtn.addEventListener("click", startingPomodoro);

@@ -164,6 +164,7 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: rotate(180deg);
   animation: showPercent__left 30s linear both;
   animation-delay: 30s;
+  animation-play-state: paused;
 }
 
 @keyframes showPercent__left {
@@ -177,6 +178,7 @@ input[type="number"]::-webkit-inner-spin-button {
   transform-origin: 0% 50%;
   transform: rotate(180deg);
   animation: showPercent__right 30s linear both;
+  animation-play-state: paused;
 }
 
 @keyframes showPercent__right {
@@ -202,7 +204,11 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 373px;
   border-radius: 50%;
   transform: rotate(0deg);
-  animation: rotateCD 30s linear both;
+  animation-name: rotateCD;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-play-state: paused;
 }
 
 @keyframes rotateCD {

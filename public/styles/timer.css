@@ -183,14 +183,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transition-duration: 1s;
 }
 
-/* .timer .secondTimeBox {
-  height: 50%;
-}
-
-.timer .secondTimeBox .secondTime {
-  font-size: 20px;
-} */
-
 .timer .sign {
   font-size: 35px;
   color: white;
