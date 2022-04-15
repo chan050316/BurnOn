@@ -1,10 +1,13 @@
 const introInputsBox = document.querySelector("#intro-inputs-box");
+const inputs = introInputsBox.querySelectorAll("input");
 const introBox = document.querySelector("#intro-box");
 const inputBtn = document.querySelector("#inputBtnJS");
 const introTextBox = document.querySelectorAll(".introText-box");
 const introBtn = document.querySelectorAll(".introBtnJS");
 const introText = document.querySelectorAll(".intro-text");
 const iconIntroClose = document.querySelectorAll(".icon-intro-closeJS");
+const loadingLeft = document.querySelector("#loadingLeftJS");
+const loadingRight = document.querySelector("#loadingRightJS");
 const CDCircle = document.querySelector("#CDCircleJS");
 
 let page = 1;
@@ -36,7 +39,24 @@ function closeIntro() {
 function startingPomodoro() {
   introInputsBox.remove();
 
+  console.log(inputs);
   CDCircle.style.animationPlayState = "running";
+  CDCircle.style.animationDuration = "";
+
+  loadingLeft.style.animationPlayState = "running";
+  loadingRight.style.animationPlayState = "running";
+
+  loadingLeft.style.animationName = "showPercent__left";
+  // loadingLeft.style.animationDuration = `${Number(
+  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  // )}s`;
+  // loadingLeft.style.animationDelay = `${Number(
+  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  // )}s`;
+  loadingRight.style.animationName = "showPercent__right";
+  // loadingRight.style.animationDuration = `${Number(
+  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
+  // )}s`;
 }
 
 introBtn.forEach(btn => {

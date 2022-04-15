@@ -161,13 +161,20 @@ input[type="number"]::-webkit-inner-spin-button {
 .timerBox .backGroundCircle .left {
   z-index: 6;
   transform-origin: 100% 50%;
-  transform: rotate(180deg);
-  animation: showPercent__left 30s linear both;
   animation-delay: 30s;
+  transform: rotate(180deg);
+  animation-name: showPercent__left;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 
 @keyframes showPercent__left {
+  0% {
+    transform: rotate(180deg);
+  }
+
   100% {
     transform: rotate(360deg);
   }
@@ -176,12 +183,17 @@ input[type="number"]::-webkit-inner-spin-button {
 .timerBox .backGroundCircle .right {
   z-index: 6;
   transform-origin: 0% 50%;
-  transform: rotate(180deg);
-  animation: showPercent__right 30s linear both;
+  animation-name: showPercent__right;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 
 @keyframes showPercent__right {
+  0% {
+    transform: rotate(180deg);
+  }
   100% {
     transform: rotate(360deg);
   }

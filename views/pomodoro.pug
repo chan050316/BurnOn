@@ -16,17 +16,17 @@ html(lang="en")
         div.intro-typing
           div.inputs
             input(type="number")
-            div.sign m
+            div.sign h
             input(type="number")
-            div.sign s
+            div.sign m
           div.subText 일할 시간을 입력해 주세요
         div.whiteLine
         div.intro-typing
           div.inputs
             input(type="number")
-            div.sign m
+            div.sign h
             input(type="number")
-            div.sign s
+            div.sign m
           div.subText 쉬는 시간을 입력해 주세요
       div.intro-btnBox
         div.introBtn#inputBtnJS
@@ -46,16 +46,17 @@ html(lang="en")
         div.subTitle Pomodoro
       div.timerBox
         div.backGroundCircle.leftBack
-          div.showPercentCircle.left
+          div.showPercentCircle.left#loadingLeftJS
         div.backGroundCircle.rightBack
-          div.showPercentCircle.right
+          div.showPercentCircle.right#loadingRightJS
         div.inside-WhiteCircle
         div.inside-CDCircle#CDCircleJS
         div.inside-CDCircle-holeDesign1
         div.inside-CDCircle-holeDesign2
         div.inside-CDCircle-holeDesign3
         div.inside-CDCircle-holeDesign4
-        div.inside-CDCircle-time 쉬는시간
+        div.inside-CDCircle-time Work
+        div.inside-CDCircle-time.hidden Break
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-

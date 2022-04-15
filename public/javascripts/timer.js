@@ -1,5 +1,4 @@
 const notyf = new Notyf({
-  duration: 1000,
   position: {
     x: "left",
     y: "bottom",
@@ -50,7 +49,6 @@ function timerStarting() {
       El.classList.remove("hidden");
     });
 
-    // 입력된게 숫자가 아니라면 알림 띄우기
     timerHours.forEach(El => {
       El.style.transform = `translateY(-${
         timerNumValue[0] * 35 - countHourNum * 35
