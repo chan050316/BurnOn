@@ -23,6 +23,11 @@ for (i in INTROTEXTS) {
 }
 //if cookie 가 없음 시 closeIntro 작동
 
+function inputMaxlength() {
+  if (this.value.length > 2) {
+    this.value = this.value.substr(0, 2);
+  }
+}
 function sliding() {
   if (page === INTROTEXTS.length) {
     introBox.remove();
@@ -39,26 +44,52 @@ function closeIntro() {
 function startingPomodoro() {
   introInputsBox.remove();
 
-  console.log(inputs);
-  CDCircle.style.animationPlayState = "running";
-  CDCircle.style.animationDuration = "";
+  const inputValues = [];
+
+  inputs.forEach(input => {
+    inputValues.push(input.value);
+  });
+
+  const WorkCDDuration = inputValues[0] * 3600 + inputValues[1] * 60;
+  const WorkCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
+
+  pomodoroWork(WorkCDDuration, WorkCDRotate);
+  setTimeout(pomodoroBreak, WorkCDDuration * 1000);
+}
+function pomodoroWork(WorkCDDuration, WorkCDRotate) {
+  timerinit();
+  CDCircle.style.transform = `rotate(${WorkCDRotate}deg)`;
+  CDCircle.style.transitionDuration = `${WorkCDDuration}s`;
+
+  loadingLeft.style.animationName = "showPercent__left";
+  loadingRight.style.animationName = "showPercent__right";
 
   loadingLeft.style.animationPlayState = "running";
   loadingRight.style.animationPlayState = "running";
 
-  loadingLeft.style.animationName = "showPercent__left";
-  // loadingLeft.style.animationDuration = `${Number(
-  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  // )}s`;
-  // loadingLeft.style.animationDelay = `${Number(
-  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  // )}s`;
-  loadingRight.style.animationName = "showPercent__right";
-  // loadingRight.style.animationDuration = `${Number(
-  //   (timerNumValue[0] * 3600 + timerNumValue[1] * 60) / 2
-  // )}s`;
+  loadingLeft.style.animationDuration = `${WorkCDDuration / 2}s`;
+  loadingLeft.style.animationDelay = `${WorkCDDuration / 2}s`;
+  loadingRight.style.animationDuration = `${WorkCDDuration / 2}s`;
+}
+function pomodoroBreak() {
+  timerinit();
+  alert("a");
+}
+function timerinit() {
+  CDCircle.style.transform = "rotate(0deg)";
+  CDCircle.style.transitionDuration = "0s";
+
+  loadingLeft.style.animationPlayState = "paused";
+  loadingRight.style.animationPlayState = "paused";
+
+  loadingLeft.style.animationName = "init";
+  loadingRight.style.animationName = "init";
+  alert("a");
 }
 
+inputs.forEach(input => {
+  input.addEventListener("input", inputMaxlength);
+});
 introBtn.forEach(btn => {
   btn.addEventListener("click", sliding);
 });
