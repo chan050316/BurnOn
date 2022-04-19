@@ -10,8 +10,10 @@ html(lang="en")
     link(rel="stylesheet", href="styles/fonts.css")
     link(rel="stylesheet", href="styles/defaultPageDesign.css")
     link(rel="stylesheet", href="styles/pomodoro.css")
-  body 
+  body
     div.intro-box#intro-inputs-box
+      form.intro-backBtn(action="/")
+        button.material-icons.icon-back &#xe5e0;
       div.intro-typingBox
         div.intro-typing
           div.inputs
@@ -30,10 +32,12 @@ html(lang="en")
           div.subText 쉬는 시간을 입력해 주세요
       div.intro-btnBox
         div.introBtn#inputBtnJS
-    div.intro-box#intro-box(style="display:none")
-      -for(i=0; i<4; i++)
+    div.intro-box#intro-box
+      form.intro-backBtn(action="/")
+        button.material-icons.icon-back &#xe5e0;
+      div.material-icons.icon-intro-close.icon-intro-closeJS &#xe5cd;
+      -for(i=0; i<6; i++)
         div.introText-box
-          div.material-icons.icon-intro-close.icon-intro-closeJS &#xe5cd;
           div.intro-text
           div.introBtn.introBtnJS
     div.bodyBox-sideMenu
@@ -55,8 +59,7 @@ html(lang="en")
         div.inside-CDCircle-holeDesign2
         div.inside-CDCircle-holeDesign3
         div.inside-CDCircle-holeDesign4
-        div.inside-CDCircle-time Work
-        div.inside-CDCircle-time.hidden Break
+        div.inside-CDCircle-time#inside-CDCircle-timeJS
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
