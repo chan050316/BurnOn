@@ -5,7 +5,7 @@ const inputBtn = document.querySelector("#inputBtnJS");
 const introTextBox = document.querySelectorAll(".introText-box");
 const introBtn = document.querySelectorAll(".introBtnJS");
 const introText = document.querySelectorAll(".intro-text");
-const iconIntroClose = document.querySelectorAll(".icon-intro-closeJS");
+const iconIntroClose = document.querySelector(".icon-intro-closeJS");
 const loadingLeft = document.querySelector("#loadingLeftJS");
 const loadingRight = document.querySelector("#loadingRightJS");
 const CDCircle = document.querySelector("#CDCircleJS");
@@ -123,7 +123,5 @@ inputs.forEach(input => {
 introBtn.forEach(btn => {
   btn.addEventListener("click", sliding);
 });
-iconIntroClose.forEach(icon => {
-  icon.addEventListener("click", closeIntro);
-});
+iconIntroClose.addEventListener("click", closeIntro);
 inputBtn.addEventListener("click", startingPomodoro);

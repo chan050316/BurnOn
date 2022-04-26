@@ -74,6 +74,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .intro-box .intro-backBtn {
   position: fixed;
+  z-index: 10;
   left: 53px;
   top: 47px;
 }
@@ -88,6 +89,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .intro-box .icon-intro-close {
   position: fixed;
+  z-index: 10;
   right: 53px;
   top: 47px;
   height: 50px;
