@@ -2,11 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.cookie("json", {
-    visitRecord: "firstTime",
-  });
-  console.log(req.cookies);
-
   res.render("home");
 });
 
@@ -15,11 +10,16 @@ router.get("/timer", (req, res) => {
 });
 
 router.get("/pomodoro", (req, res) => {
-  res.cookie("json", {
-    visitRecord: "MoreFirstTime",
-  });
-  if (req.cookies.json.visitRecord === "firstTime") {
-    console.log("HAHA");
+  const cookie = JSON.stringify(req.cookies);
+  if (cookie === "{}") {
+    console.log("You come this page first time!");
+    res.cookie("json", {
+      visitRecord: "MoreFirstTime",
+    });
+    // 첫번째 일때
+  } else {
+    console.log("You come this page not first time!");
+    // 첫번째 아닐 때
   }
   console.log(req.cookies);
   res.render("pomodoro");
