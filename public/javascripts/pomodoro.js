@@ -12,6 +12,7 @@ const CDCircle = document.querySelector("#CDCircleJS");
 const timeCondition = document.querySelector("#inside-CDCircle-timeJS");
 
 let page = 1;
+let CDRotate = 0;
 
 const INTROTEXTS = [
   "뽀모도로가 처음이신가요?",
@@ -59,8 +60,10 @@ function startingPomodoro() {
   const workCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
   const PomodoroCDDuration = inputValues[2] * 3600 + inputValues[3] * 60;
   const PomodoroCDRotate = (inputValues[2] * 60 + inputValues[3]) * 360;
-
   pomodoroWork(workCDDuration, workCDRotate);
+
+  console.log(workCDDuration);
+  console.log(PomodoroCDDuration);
 
   setTimeout(
     pomodoroBreak,
@@ -73,8 +76,10 @@ function pomodoroWork(duration, rotate) {
   timerinit();
   timeCondition.innerHTML = "Work";
 
-  CDCircle.style.transform = `rotate(${rotate}deg)`;
+  CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
+  console.log(CDRotate);
   CDCircle.style.transitionDuration = `${duration}s`;
+  console.log(CDCircle.style.transitionDuration);
 
   loadingLeft.style.animationName = "showPercent__leftWork";
   loadingRight.style.animationName = "showPercent__rightWork";
@@ -90,8 +95,10 @@ function pomodoroBreak(duration, rotate) {
   timerinit();
   timeCondition.innerHTML = "Break";
 
-  CDCircle.style.transform = `rotate(${rotate}deg)`;
+  CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
+  console.log(CDRotate);
   CDCircle.style.transitionDuration = `${duration}s`;
+  console.log(CDCircle.style.transitionDuration);
 
   loadingLeft.style.transform = "rotate(180deg)";
   loadingRight.style.transform = "rotate(180deg)";
@@ -106,12 +113,9 @@ function pomodoroBreak(duration, rotate) {
   loadingLeft.style.animationDelay = `${duration / 2}s`;
   loadingRight.style.animationDuration = `${duration / 2}s`;
 
-  setTimeout(startingPomodoro, 12 * 1000);
+  setTimeout(startingPomodoro, duration * 1000);
 }
 function timerinit() {
-  CDCircle.style.transform = "rotate(0deg)";
-  CDCircle.style.transitionDuration = "0s";
-
   loadingLeft.style.animationDuration = "";
   loadingLeft.style.animationDelay = "";
   loadingRight.style.animationDuration = "";
