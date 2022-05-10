@@ -1,3 +1,7 @@
+.body {
+  font-family: Cafe24SsurroundAir;
+}
+
 .intro-box {
   position: absolute;
   z-index: 20;
@@ -7,7 +11,6 @@
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  font-family: Cafe24SsurroundAir;
   white-space: nowrap;
   overflow-x: hidden;
   color: white;
@@ -16,60 +19,6 @@
 .intro-box:first-child {
   flex-direction: column;
   justify-content: center;
-}
-
-.intro-box .intro-typingBox .intro-typing {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.intro-box .intro-typingBox .intro-typing .inputs {
-  display: flex;
-  align-items: end;
-}
-
-.intro-box .intro-typingBox .intro-typing .inputs input {
-  width: 150px;
-  height: 75px;
-  font-size: 75px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: white;
-  text-align: end;
-  vertical-align: end;
-  line-height: 40px;
-  font-family: Cafe24SsurroundAir;
-  padding-top: 13px;
-}
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.intro-box .intro-typingBox .intro-typing .inputs .sign {
-  font-size: 40px;
-  margin: 0 5px;
-}
-
-.intro-box .intro-typingBox .intro-typing .subText {
-  margin: 60px 25px;
-  font-size: 40px;
-}
-
-.intro-box .intro-typingBox .whiteLine {
-  display: inline-block;
-  margin: 0 40px 50px 40px;
-  height: 250px;
-  width: 2px;
-  background-color: white;
-}
-
-.intro-box .intro-btnBox .introBtn {
-  margin: 0;
 }
 
 .intro-box .intro-backBtn {
@@ -139,6 +88,60 @@ input[type="number"]::-webkit-inner-spin-button {
   100% {
     transform: scale(100%);
   }
+}
+
+.intro-box .intro-typingBox .intro-typing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs {
+  display: flex;
+  align-items: end;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs input {
+  width: 150px;
+  height: 75px;
+  font-size: 75px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-align: end;
+  vertical-align: end;
+  line-height: 40px;
+  font-family: Cafe24SsurroundAir;
+  padding-top: 13px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.intro-box .intro-typingBox .intro-typing .inputs .sign {
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+.intro-box .intro-typingBox .intro-typing .subText {
+  margin: 60px 25px;
+  font-size: 40px;
+}
+
+.intro-box .intro-typingBox .whiteLine {
+  display: inline-block;
+  margin: 0 40px 50px 40px;
+  height: 250px;
+  width: 2px;
+  background-color: white;
+}
+
+.intro-box .intro-btnBox .introBtn {
+  margin: 0;
 }
 
 .timerBox {
@@ -238,8 +241,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .timerBox .inside-WhiteCircle {
   position: absolute;
   z-index: 9;
-  width: 380px;
-  height: 380px;
+  width: 370px;
+  height: 370px;
   background-color: #f5f5f5;
   border-radius: 50%;
 }
@@ -248,8 +251,8 @@ input[type="number"]::-webkit-inner-spin-button {
   position: absolute;
   z-index: 10;
   background-image: url(../images/407\ Dank\ on\ Twitter.png);
-  height: 373px;
-  width: 373px;
+  height: 363px;
+  width: 363px;
   border-radius: 50%;
   transform: rotate(0deg);
   transition-timing-function: linear;

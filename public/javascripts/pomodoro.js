@@ -77,9 +77,7 @@ function pomodoroWork(duration, rotate) {
   timeCondition.innerHTML = "Work";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
-  console.log(CDRotate);
   CDCircle.style.transitionDuration = `${duration}s`;
-  console.log(CDCircle.style.transitionDuration);
 
   loadingLeft.style.animationName = "showPercent__leftWork";
   loadingRight.style.animationName = "showPercent__rightWork";
@@ -96,9 +94,7 @@ function pomodoroBreak(duration, rotate) {
   timeCondition.innerHTML = "Break";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
-  console.log(CDRotate);
   CDCircle.style.transitionDuration = `${duration}s`;
-  console.log(CDCircle.style.transitionDuration);
 
   loadingLeft.style.transform = "rotate(180deg)";
   loadingRight.style.transform = "rotate(180deg)";
