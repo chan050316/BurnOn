@@ -2,8 +2,6 @@ const bodyEl = document.querySelector("body");
 const bodyBoxSideMenu = document.querySelector("#bodyBox-sideMenuJS");
 const sideBarBlank = document.querySelector("#sideBar__blankJS");
 const closeSideBarIcon = document.querySelector("#closeSideBarJS");
-const btnPlay = document.querySelector("#btn-playJS");
-const iconPlay = document.querySelector("#icon-playJS");
 const btnMenu = document.querySelectorAll(".btn-menu");
 const optionHamburge = document.querySelector("#option-hamburgerJS");
 const optionMusic = document.querySelector("#option-musicJS");
@@ -70,7 +68,6 @@ function closeSideBarIcon__out() {
   closeSideBarIcon.style.color = "#f5f5f5";
 }
 
-btnPlay.addEventListener("click", playingMusic);
 btnMenu.forEach(btn => {
   btn.addEventListener("click", sideBar__open);
 });
