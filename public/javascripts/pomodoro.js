@@ -27,7 +27,12 @@ const INTROTEXTS = [
 for (i in INTROTEXTS) {
   introText[i].innerHTML = INTROTEXTS[i];
 }
-//if cookie 가 없음 시 closeIntro 작동
+
+if (document.cookie.indexOf("FirstTime") === 39) {
+  // if more than first time visit page
+  // The first time is 'document.cookie.indexOf("FirstTime") === 35'
+  closeIntro();
+}
 
 function inputMaxlength() {
   if (this.value.length > 2) {

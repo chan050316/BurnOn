@@ -13,15 +13,23 @@ router.get("/pomodoro", (req, res) => {
   const cookie = JSON.stringify(req.cookies);
   if (cookie === "{}") {
     console.log("You come this page first time!");
-    res.cookie("json", {
-      visitRecord: "MoreFirstTime",
-    });
-    // 첫번째 일때
+    res.cookie(
+      "json",
+      {
+        visitRecord: "FirstTime",
+      },
+      { path: "/pomodoro" }
+    );
   } else {
+    res.cookie(
+      "json",
+      {
+        visitRecord: "moreFirstTime",
+      },
+      { path: "/pomodoro" }
+    );
     console.log("You come this page not first time!");
-    // 첫번째 아닐 때
   }
-  console.log(req.cookies);
   res.render("pomodoro");
 });
 
