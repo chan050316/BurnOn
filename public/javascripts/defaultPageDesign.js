@@ -9,15 +9,6 @@ const optionSound = document.querySelector("#option-volumeJS");
 
 const options = [optionHamburge, optionMusic, optionSound];
 
-function playingMusic() {
-  if (iconPlay.className === "material-icons icon-pause icon-play") {
-    iconPlay.innerHTML = "&#xe034;";
-  } else {
-    iconPlay.innerHTML = "&#xe037;";
-  }
-  iconPlay.classList.toggle("icon-play");
-}
-
 function sideBar__open() {
   bodyBoxSideMenu.classList.add("sideBar");
   closeSideBarIcon.classList.remove("hidden");
@@ -56,6 +47,9 @@ function sideBar__open() {
 function sideBar__close() {
   bodyBoxSideMenu.classList.remove("sideBar");
   closeSideBarIcon.classList.add("hidden");
+  options.forEach(option => {
+    option.classList.add("hidden");
+  });
 }
 
 function closeSideBarIcon__over() {

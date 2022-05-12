@@ -138,8 +138,51 @@ body {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* justify-content: flex-start; */
+}
+
+.option-music .musicListBox {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+  background-color: #282828;
+}
+
+.option-music .musicListBox input {
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: none;
+  background-color: white;
+}
+
+.option-music .musicListBox .musicListBox_textBox {
+  height: 100%;
+  width: 100%;
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: solid #f5f5f5 1px;
+}
+
+.option-music .musicListBox .musicListBox_textBox .musicListBox_name {
+  font-size: 1rem;
+  color: white;
+}
+
+.option-music .musicListBox .musicListBox_textBox .musicListBox_time {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .option-volume {

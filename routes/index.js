@@ -1,12 +1,27 @@
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
+
+function sendAudiosName() {}
 
 router.get("/", (req, res) => {
   res.render("home");
 });
 
 router.get("/timer", (req, res) => {
-  res.render("timer");
+  sendAudiosName();
+  const folder = "./public/audios";
+
+  fs.readdir(folder, function (error, filelist) {
+    for (i in filelist) {
+      const fileName = filelist[i];
+      const mp3TextNum = fileName.indexOf(".mp3");
+      filelist[i] = fileName.substr(0, mp3TextNum);
+    }
+    res.render("timer", {
+      fileNames: filelist,
+    });
+  });
 });
 
 router.get("/pomodoro", (req, res) => {

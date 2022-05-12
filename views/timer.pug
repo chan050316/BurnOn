@@ -92,6 +92,12 @@ html(lang="en")
           form(action="/" + PAGELINK[i], method="get") 
             button.movePageBox #{PAGENAME[i]}
       div.option-music#option-musicJS.hidden
+        -for(i = 0; i < fileNames.length; i++)
+          div.musicListBox
+            input(type="radio", name="audio", id=fileNames[i]).musicRadioInputJS
+            div.musicListBox_textBox
+              div.musicListBox_name #{fileNames[i]}
+              div.musicListBox_time 00:00
       div.option-volume#option-volumeJS.hidden
     script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
     script(src="javascripts/defaultPageDesign.js")
