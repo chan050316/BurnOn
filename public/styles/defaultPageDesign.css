@@ -151,6 +151,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  overflow-y: scroll;
   margin-bottom: 2px;
   background-color: #282828;
 }

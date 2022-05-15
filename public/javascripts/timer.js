@@ -1,4 +1,4 @@
-const notyf = new Notyf({
+const notyfError = new Notyf({
   position: {
     x: "left",
     y: "bottom",
@@ -9,6 +9,22 @@ const notyf = new Notyf({
       background: "red",
       duration: 3000,
       ripple: false,
+    },
+  ],
+});
+
+const notyfAlarm = new Notyf({
+  position: {
+    x: "left",
+    y: "bottom",
+  },
+  types: [
+    {
+      type: "success",
+      background: "green",
+      duration: 10000,
+      ripple: false,
+      message: "Done...!",
     },
   ],
 });
@@ -30,6 +46,7 @@ let countHourNum = 0;
 let countMinuteNum = 0;
 let countSecondNum = 0;
 let firtsConnect = true;
+let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
 
 function inputMaxlength() {
   if (this.value.length > 2) {
@@ -84,12 +101,12 @@ function timerStarting() {
     }
     window.countSecond = setInterval(countingSecond, 1000);
   } else if (timerNums[0].value > 24) {
-    notyf.open({
+    notyfError.open({
       type: "error",
-      message: "24시간보다 작게 입력해주세요ㅠㅠㅠ 후엥",
+      message: "24시간보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
   } else if (timerNums[1].value > 60) {
-    notyf.open({
+    notyfError.open({
       type: "error",
       message: "60분보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
@@ -126,8 +143,12 @@ function countingMinute() {
 function countingHour() {
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
+    alarm.play();
+    pauseMusic();
     timerEnding();
-    alert("Done...!");
+    notyfAlarm.open({
+      type: "success",
+    });
   } else {
     timerHours.forEach(El => {
       El.style.transform = `translateY(-${

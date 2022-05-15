@@ -1,9 +1,6 @@
 doctype html
 html(lang="en")
   head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Timer
     include includes/head.pug
     link(rel="stylesheet", href="styles/defaultPageDesign.css")
@@ -64,17 +61,7 @@ html(lang="en")
       div.qouteBox 
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
-      div.controlerBox
-        div.minuteBox
-          div 00:00
-          div.endMinute 00:00
-        div.minuteLine
-          div.minuteLineFill
-        div.minuteControlBtnBox
-          span.material-icons.icon-skip &#xe045;
-          div.button.btn-play#btn-playJS
-            span.material-icons.icon-pause#icon-playJS &#xe037;
-          span.material-icons.icon-skip &#xe044;
+      include includes/musicControler.pug
     div.bodyBox-sideMenu#bodyBox-sideMenuJS
       div.option-buttons
         div.button.btn-menu
@@ -91,17 +78,9 @@ html(lang="en")
         -for(i in PAGENAME)
           form(action="/" + PAGELINK[i], method="get") 
             button.movePageBox #{PAGENAME[i]}
-      div.option-music#option-musicJS.hidden
-        -for(i = 0; i < fileNames.length; i++)
-          div.musicListBox
-            input(type="radio", name="audio", id=fileNames[i]).musicRadioInputJS
-            div.musicListBox_textBox
-              div.musicListBox_name.musicNameJS #{fileNames[i]}
-              div.musicListBox_time 00:00
+      include includes/audiosList.pug
       div.option-volume#option-volumeJS.hidden
     script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
-    script(src="javascripts/defaultPageDesign.js")
     script(src="javascripts/canvas.js")
+    include includes/script.pug
     script(src="javascripts/timer.js")
-    script(src="javascripts/audio.js") 
-
