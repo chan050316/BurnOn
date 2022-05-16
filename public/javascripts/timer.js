@@ -54,7 +54,7 @@ function inputMaxlength() {
   }
 }
 function timerStarting() {
-  if (timerNums[0].value <= 24 && timerNums[1].value <= 60) {
+  if (timerNums[0].value <= 20 && timerNums[1].value <= 60) {
     timerStart.style.display = "none";
     timerStop.style.display = "flex";
     timerNums.forEach(El => {
@@ -100,10 +100,10 @@ function timerStarting() {
       firtsConnect = false;
     }
     window.countSecond = setInterval(countingSecond, 1000);
-  } else if (timerNums[0].value > 24) {
+  } else if (timerNums[0].value > 20) {
     notyfError.open({
       type: "error",
-      message: "24시간보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
+      message: "20시간보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
   } else if (timerNums[1].value > 60) {
     notyfError.open({
@@ -125,10 +125,11 @@ function countingSecond() {
   }
 }
 function countingMinute() {
-  if (countMinuteNum == timerNumValue[1]) {
+  if (countMinuteNum == timerNumValue[1] && timerNumValue[1] !== 0) {
     timerNumValue[1] = 60;
     timerNums[1].value = 60;
     countMinuteNum = 0;
+    console.log(1);
     countingHour();
   } else {
     countMinuteNum++;
@@ -144,7 +145,7 @@ function countingHour() {
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
     alarm.play();
-    pauseMusic();
+    pauseMusic(); //in audio.js
     timerEnding();
     notyfAlarm.open({
       type: "success",
