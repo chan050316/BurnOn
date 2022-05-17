@@ -13,6 +13,7 @@ const timeCondition = document.querySelector("#inside-CDCircle-timeJS");
 
 let page = 1;
 let CDRotate = 0;
+let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
 
 const INTROTEXTS = [
   "뽀모도로가 처음이신가요?",

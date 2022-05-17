@@ -42,9 +42,7 @@ router.get("/pomodoro", (req, res) => {
     );
     console.log("You come this page not first time!");
   }
-
   const folder = "./public/audios";
-
   fs.readdir(folder, function (error, filelist) {
     for (i in filelist) {
       const fileName = filelist[i];

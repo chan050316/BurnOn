@@ -62,23 +62,6 @@ html(lang="en")
         div.qoute Lorem Ipsum is simply dummy text of the printing and
         div.writer -Lorem Ipsum-
       include includes/musicControler.pug
-    div.bodyBox-sideMenu#bodyBox-sideMenuJS
-      div.option-buttons
-        div.button.btn-menu
-          span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
-        div.button.btn-menu
-          span.icon-music.material-icons.sideBar__icon &#xe405;
-        div.button.btn-menu
-          span.icon-volume.material-icons.sideBar__icon &#xe050;
-        div.sideBar__blank#sideBar__blankJS
-          span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
-      div.option-hamburger#option-hamburgerJS.hidden
-        -const PAGELINK = ["timer", "pomodoro", "custom"];
-        -const PAGENAME = ["Timer", "Pomodoro", "Custom"];
-        -for(i in PAGENAME)
-          form(action="/" + PAGELINK[i], method="get") 
-            button.movePageBox #{PAGENAME[i]}
-      include includes/audiosList.pug
-      div.option-volume#option-volumeJS.hidden
+    include includes/sideMenu.pug
     include includes/script.pug
     script(src="javascripts/pomodoro.js")

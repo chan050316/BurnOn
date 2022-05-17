@@ -54,7 +54,6 @@
 }
 
 .intro-box .introText-box {
-  transition-duration: 1s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -256,7 +255,6 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 50%;
   transform: rotate(0deg);
   transition-timing-function: linear;
-  transition-duration: 60s;
 }
 
 .timerBox .inside-CDCircle-holeDesign1 {

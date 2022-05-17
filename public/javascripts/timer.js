@@ -29,6 +29,8 @@ const notyfAlarm = new Notyf({
   ],
 });
 
+const coverPageEndTimer = document.querySelector("#coverPage-endTimerJS");
+const coverPageBtn = coverPageEndTimer.querySelector("#coverPage-btnJS");
 const loadingLeft = document.querySelector("#loadingLeftJS");
 const loadingRight = document.querySelector("#loadingRightJS");
 const timer = document.querySelector("#timerJS");
@@ -37,7 +39,7 @@ const timerTimeBoxs = timer.querySelectorAll(".timerTimeBoxJS");
 const timerHours = timer.querySelectorAll(".timerHourJS");
 const timerMinutes = timer.querySelectorAll(".timerMinuteJS");
 const timerSeconds = timer.querySelectorAll(".timerSecondJS");
-const timerStart = document.querySelector("#timerStart");
+const timerStart = document.querySelector("#timerStartJS");
 const timerStop = document.querySelector("#timerStop");
 const timerEnd = document.querySelector("#timerEnd");
 
@@ -47,14 +49,28 @@ let countMinuteNum = 0;
 let countSecondNum = 0;
 let firtsConnect = true;
 let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
+let interval;
 
+function openAlarmPage() {
+  coverPageEndTimer.style.display = "flex";
+}
+function closeAlarmPage() {
+  coverPageEndTimer.style.display = "none";
+  alarm.pause();
+}
 function inputMaxlength() {
   if (this.value.length > 2) {
     this.value = this.value.substr(0, 2);
   }
 }
 function timerStarting() {
-  if (timerNums[0].value <= 20 && timerNums[1].value <= 60) {
+  console.log(1);
+
+  if (
+    timerNums[0].value <= 20 &&
+    timerNums[0].value !== "" &&
+    timerNums[1].value <= 60
+  ) {
     timerStart.style.display = "none";
     timerStop.style.display = "flex";
     timerNums.forEach(El => {
@@ -96,10 +112,9 @@ function timerStarting() {
         El.style.transform = `translateY(-${60 * 35}px)`;
       });
       countingMinute();
-      countingSecond();
       firtsConnect = false;
     }
-    window.countSecond = setInterval(countingSecond, 1000);
+    interval = setInterval(countingSecond, 1000);
   } else if (timerNums[0].value > 20) {
     notyfError.open({
       type: "error",
@@ -110,9 +125,16 @@ function timerStarting() {
       type: "error",
       message: "60분보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
+  } else if (timerNums[1].value === "") {
+    notyfError.open({
+      type: "error",
+      message: "값을 입력해주세요ㅠㅠㅠ 후엥",
+    });
   }
 }
 function countingSecond() {
+  console.log(2);
+
   if (countSecondNum == 60) {
     countSecondNum = 0;
     countingMinute();
@@ -121,15 +143,16 @@ function countingSecond() {
     timerSeconds.forEach(El => {
       El.style.transform = `translateY(-${60 * 35 - countSecondNum * 35}px)`;
     });
-    console.log(countSecondNum);
+    // console.log(countSecondNum);
   }
 }
 function countingMinute() {
+  console.log(3);
+
   if (countMinuteNum == timerNumValue[1] && timerNumValue[1] !== 0) {
     timerNumValue[1] = 60;
     timerNums[1].value = 60;
     countMinuteNum = 0;
-    console.log(1);
     countingHour();
   } else {
     countMinuteNum++;
@@ -138,18 +161,18 @@ function countingMinute() {
         60 * 35 - (60 - timerNumValue[1]) * 35 - countMinuteNum * 35
       }px)`;
     });
-    console.log(countMinuteNum);
+    // console.log(countMinuteNum);
   }
 }
 function countingHour() {
+  console.log(4);
+
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
     alarm.play();
     pauseMusic(); //in audio.js
     timerEnding();
-    notyfAlarm.open({
-      type: "success",
-    });
+    openAlarmPage();
   } else {
     timerHours.forEach(El => {
       El.style.transform = `translateY(-${
@@ -159,15 +182,19 @@ function countingHour() {
   }
 }
 function timerStoping() {
+  console.log(5);
+
   timerStart.style.display = "flex";
   timerStop.style.display = "none";
   loadingLeft.style.animationPlayState = "paused";
   loadingRight.style.animationPlayState = "paused";
 
   timerNumValue = [];
-  clearInterval(window.countSecond);
+  clearInterval(interval);
 }
 function timerEnding() {
+  console.log(6);
+
   timerNums.forEach(El => {
     El.classList.remove("hidden");
     El.value = "";
@@ -186,13 +213,14 @@ function timerEnding() {
 
   timerNumValue = [];
 
-  clearInterval(window.countSecond);
+  clearInterval(interval);
   countHourNum = 0;
   countMinuteNum = 0;
   countSecondNum = 0;
   firtsConnect = true;
 }
 
+coverPageBtn.addEventListener("click", closeAlarmPage);
 timerNums.forEach(input => {
   input.addEventListener("input", inputMaxlength);
 });

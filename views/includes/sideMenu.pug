@@ -1,0 +1,24 @@
+div.bodyBox-sideMenu#bodyBox-sideMenuJS
+  div.option-buttons
+    div.button.btn-menu
+      span.icon-hamburger.material-icons.sideBar__icon &#xe5d2;
+    div.button.btn-menu
+      span.icon-music.material-icons.sideBar__icon &#xe405;
+    div.button.btn-menu
+      span.icon-volume.material-icons.sideBar__icon &#xe050;
+    div.sideBar__blank#sideBar__blankJS
+      span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
+  div.option-hamburger#option-hamburgerJS.hidden
+    -const PAGELINK = ["timer", "pomodoro", "custom"];
+    -const PAGENAME = ["Timer", "Pomodoro", "Custom"];
+    -for(i in PAGENAME)
+      form(action="/" + PAGELINK[i], method="get") 
+        button.movePageBox #{PAGENAME[i]}
+  div.option-music#option-musicJS.hidden
+    -for(i = 0; i < fileNames.length; i++)
+      div.musicListBox
+        input(type="radio", name="audio", id=fileNames[i]).musicRadioInputJS
+        div.musicListBox_textBox
+          div.musicListBox_name.musicNameJS #{fileNames[i]}
+          div.musicListBox_time 00:00
+  div.option-volume#option-volumeJS.hidden
