@@ -254,9 +254,9 @@ body {
 
 .controlerBox .minuteLine .minuteLineFill {
   height: 100%;
-  width: 40%;
   background-color: #474747;
   border-radius: 5px;
+  width: 0;
 }
 
 .controlerBox .minuteControlBtnBox {
