@@ -7,7 +7,7 @@ const musicNameJS = document.querySelectorAll(".musicNameJS");
 const musicEndPoint = document.querySelector("#musicEndPointJS");
 const minuteLineFill = document.querySelector("#minuteLineFillJS");
 
-let audio = new Audio("/audios/" + musicNameJS[1].innerText + ".mp3");
+let audio = new Audio("/audios/" + musicNameJS[0].innerText + ".mp3");
 let minuteFcCount = 1;
 let interval;
 let audioDuration;
@@ -50,6 +50,7 @@ function pauseMusic() {
   console.log("pause");
   iconPlay.innerHTML = "&#xe037;";
   iconPlay.classList.remove("icon-play");
+  clearInterval(interval);
 }
 function changingMusic() {
   pauseMusic();
@@ -57,20 +58,19 @@ function changingMusic() {
   const musicName = this.id;
   audio = new Audio("/audios/" + musicName + ".mp3");
   audio.load();
-  console.dir(audio);
   showAudioDuration(audio);
+  minuteFcCount = 1;
   playingMusic();
 }
-let i = 1;
 function minuteLineFilling() {
-  console.log(i);
+  console.log(minuteFcCount);
   const minuteLineGo = 100 / audioDuration;
-  if (100 === minuteLineGo * i) {
+  if (100 === minuteLineGo * minuteFcCount) {
     alert("music done");
   } else {
     console.log(minuteLineFill.style.width);
-    minuteLineFill.style.width = `${minuteLineGo * i}%`;
-    i++;
+    minuteLineFill.style.width = `${minuteLineGo * minuteFcCount}%`;
+    minuteFcCount++;
   }
 }
 function skipingMusic() {
