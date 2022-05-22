@@ -6,11 +6,7 @@ html(lang="en")
     link(rel="stylesheet", href="styles/defaultPageDesign.css")
     link(rel="stylesheet", href="styles/timer.css")
   body
-    div.coverPage-endTimer#coverPage-endTimerJS(style="display: none;")
-      form.intro-backBtn(action="/")
-        button.material-icons.icon-back &#xe5e0;
-      div.coverPage-typing 일어나
-      div.coverPage-btn#coverPage-btnJS
+    include includes/alarmCover.pug
     div.bodyBox-sideMenu
       form(action="/")
         button.button.btn-back
@@ -68,8 +64,6 @@ html(lang="en")
         div.writer -Lorem Ipsum-
       include includes/musicControler.pug
     include includes/sideMenu.pug
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js")
-    script(src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js") 
     script(src="javascripts/canvas.js")
     include includes/script.pug
     script(src="javascripts/timer.js")

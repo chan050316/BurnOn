@@ -2,28 +2,41 @@ const btnPlay = document.querySelector("#btn-playJS");
 const iconPlay = document.querySelector("#icon-playJS");
 const iconSkip = document.querySelector("#icon-skipJS");
 const iconBack = document.querySelector("#icon-backJS");
-const musicRadioInput = document.querySelectorAll(".musicRadioInputJS");
-const musicNameJS = document.querySelectorAll(".musicNameJS");
+const musicRadioInputs = document.querySelectorAll(".musicRadioInputJS");
+const musicNames = document.querySelectorAll(".musicNameJS");
 const musicEndPoint = document.querySelector("#musicEndPointJS");
 const minuteLineFill = document.querySelector("#minuteLineFillJS");
+const musicDurationsEl = document.querySelectorAll(".musicDurationsElJS");
 
-let audio = new Audio("/audios/" + musicNameJS[0].innerText + ".mp3");
+let audio = new Audio("/audios/" + musicNames[0].innerText + ".mp3");
 let minuteFcCount = 1;
-let interval;
+let intervalAudioJS;
 let audioDuration;
+let musicDurations = [];
 
-musicRadioInput[0].checked = true;
+musicRadioInputs[0].checked = true;
 audio.loop = false; // 반복재생하지 않음
 audio.volume = 1;
 
+let i = 0;
+musicNames.forEach(El => {
+  let music = new Audio("/audios/" + El.innerText + ".mp3");
+  music.addEventListener("loadedmetadata", () => {
+    const CalcDuration = String(music.duration).substr(
+      0,
+      String(music.duration).indexOf(".")
+    );
+    const durationRefined = moment.utc(CalcDuration * 1000).format("HH:mm:ss");
+    musicDurations.push(durationRefined);
+    musicDurationsEl[i].innerText = musicDurations[i];
+    console.log(musicDurationsEl[i]);
+    i++;
+  });
+});
+
 function showAudioDuration(audioFile) {
   audio.addEventListener("loadedmetadata", () => {
-    let duration = null;
-    if (audioFile.target === undefined) {
-      duration = audioFile.duration;
-    } else {
-      duration = audioFile.target.duration;
-    }
+    const duration = audioFile.duration;
     const CalcDuration = String(duration).substr(
       0,
       String(duration).indexOf(".")
@@ -38,7 +51,7 @@ function playingMusic() {
     iconPlay.innerHTML = "&#xe034;";
     audio.play();
     iconPlay.classList.add("icon-play");
-    interval = setInterval(minuteLineFilling, 1000);
+    intervalAudioJS = setInterval(minuteLineFilling, 1000);
 
     console.log("play");
   } else {
@@ -50,17 +63,16 @@ function pauseMusic() {
   console.log("pause");
   iconPlay.innerHTML = "&#xe037;";
   iconPlay.classList.remove("icon-play");
-  clearInterval(interval);
+  clearInterval(intervalAudioJS);
 }
 function changingMusic() {
-  pauseMusic();
-
-  const musicName = this.id;
-  audio = new Audio("/audios/" + musicName + ".mp3");
-  audio.load();
-  showAudioDuration(audio);
-  minuteFcCount = 1;
-  playingMusic();
+  // pauseMusic();
+  // const musicName = this.id;
+  // audio = new Audio("/audios/" + musicName + ".mp3");
+  // audio.load();
+  // showAudioDuration(audio);
+  // minuteFcCount = 1;
+  // playingMusic();
 }
 function minuteLineFilling() {
   console.log(minuteFcCount);
@@ -82,7 +94,7 @@ function backingMusic() {}
 showAudioDuration(audio);
 
 btnPlay.addEventListener("click", playingMusic);
-musicRadioInput.forEach(input => {
+musicRadioInputs.forEach(input => {
   input.addEventListener("click", changingMusic);
 });
 iconSkip.addEventListener("click", skipingMusic);

@@ -6,6 +6,9 @@ const introTextBox = document.querySelectorAll(".introText-box");
 const introBtn = document.querySelectorAll(".introBtnJS");
 const introText = document.querySelectorAll(".intro-text");
 const iconIntroClose = document.querySelector(".icon-intro-closeJS");
+const coverPageEndTimer = document.querySelector("#coverPage-endTimerJS");
+const coverPageTyping = coverPageEndTimer.querySelector("#coverPage-typingJS");
+const coverPageBtn = coverPageEndTimer.querySelector("#coverPage-btnJS");
 const loadingLeft = document.querySelector("#loadingLeftJS");
 const loadingRight = document.querySelector("#loadingRightJS");
 const CDCircle = document.querySelector("#CDCircleJS");
@@ -14,6 +17,10 @@ const timeCondition = document.querySelector("#inside-CDCircle-timeJS");
 let page = 1;
 let CDRotate = 0;
 let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
+let workCDDuration;
+let workCDRotate;
+let PomodoroCDDuration;
+let PomodoroCDRotate;
 
 const INTROTEXTS = [
   "뽀모도로가 처음이신가요?",
@@ -62,25 +69,18 @@ function startingPomodoro() {
     inputValues.push(Number(input.value));
   });
 
-  const workCDDuration = inputValues[0] * 3600 + inputValues[1] * 60;
-  const workCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
-  const PomodoroCDDuration = inputValues[2] * 3600 + inputValues[3] * 60;
-  const PomodoroCDRotate = (inputValues[2] * 60 + inputValues[3]) * 360;
+  workCDDuration = inputValues[0] * 3600 + inputValues[1] * 60;
+  workCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
+  PomodoroCDDuration = inputValues[2] * 3600 + inputValues[3] * 60;
+  PomodoroCDRotate = (inputValues[2] * 60 + inputValues[3]) * 360;
   pomodoroWork(workCDDuration, workCDRotate);
 
   console.log(workCDDuration);
   console.log(PomodoroCDDuration);
-
-  setTimeout(
-    pomodoroBreak,
-    workCDDuration * 1000,
-    PomodoroCDDuration,
-    PomodoroCDRotate
-  );
 }
 function pomodoroWork(duration, rotate) {
-  timerinit();
   timeCondition.innerHTML = "Work";
+  coverPageTyping.innerText = "Breaking Time";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
   CDCircle.style.transitionDuration = `${duration}s`;
@@ -94,10 +94,11 @@ function pomodoroWork(duration, rotate) {
   loadingLeft.style.animationDuration = `${duration / 2}s`;
   loadingLeft.style.animationDelay = `${duration / 2}s`;
   loadingRight.style.animationDuration = `${duration / 2}s`;
+  setTimeout(timerinit, duration * 1000);
 }
 function pomodoroBreak(duration, rotate) {
-  timerinit();
   timeCondition.innerHTML = "Break";
+  coverPageTyping.innerText = "Working Time";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
   CDCircle.style.transitionDuration = `${duration}s`;
@@ -115,14 +116,34 @@ function pomodoroBreak(duration, rotate) {
   loadingLeft.style.animationDelay = `${duration / 2}s`;
   loadingRight.style.animationDuration = `${duration / 2}s`;
 
-  setTimeout(startingPomodoro, duration * 1000);
+  setTimeout(timerinit, duration * 1000);
 }
 function timerinit() {
+  loadingLeft.style.animationName = "init";
+  loadingRight.style.animationName = "init";
+
   loadingLeft.style.animationDuration = "";
   loadingLeft.style.animationDelay = "";
   loadingRight.style.animationDuration = "";
+  openAlarmPage();
+}
+function openAlarmPage() {
+  alarm.play();
+  pauseMusic(); //in audio.js
+  coverPageEndTimer.style.display = "flex";
+}
+function closeAlarmPage() {
+  coverPageEndTimer.style.display = "none";
+  alarm.pause();
+  alarm.currentTime = 0;
+  if (timeCondition.innerHTML === "Work") {
+    pomodoroBreak(PomodoroCDDuration, PomodoroCDRotate);
+  } else if (timeCondition.innerHTML === "Break") {
+    pomodoroWork(workCDDuration, workCDRotate);
+  }
 }
 
+coverPageBtn.addEventListener("click", closeAlarmPage);
 inputs.forEach(input => {
   input.addEventListener("input", inputMaxlength);
 });

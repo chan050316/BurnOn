@@ -30,6 +30,7 @@ const notyfAlarm = new Notyf({
 });
 
 const coverPageEndTimer = document.querySelector("#coverPage-endTimerJS");
+const coverPageTyping = coverPageEndTimer.querySelector("#coverPage-typingJS");
 const coverPageBtn = coverPageEndTimer.querySelector("#coverPage-btnJS");
 const loadingLeft = document.querySelector("#loadingLeftJS");
 const loadingRight = document.querySelector("#loadingRightJS");
@@ -49,7 +50,7 @@ let countMinuteNum = 0;
 let countSecondNum = 0;
 let firtsConnect = true;
 let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
-let interval;
+let intervalTimerJS;
 
 function openAlarmPage() {
   coverPageEndTimer.style.display = "flex";
@@ -68,7 +69,7 @@ function timerStarting() {
 
   if (
     timerNums[0].value <= 20 &&
-    timerNums[0].value !== "" &&
+    timerNums[1].value !== "" &&
     timerNums[1].value <= 60
   ) {
     timerStart.style.display = "none";
@@ -114,7 +115,7 @@ function timerStarting() {
       countingMinute();
       firtsConnect = false;
     }
-    interval = setInterval(countingSecond, 1000);
+    intervalTimerJS = setInterval(countingSecond, 1000);
   } else if (timerNums[0].value > 20) {
     notyfError.open({
       type: "error",
@@ -190,7 +191,7 @@ function timerStoping() {
   loadingRight.style.animationPlayState = "paused";
 
   timerNumValue = [];
-  clearInterval(interval);
+  clearInterval(intervalTimerJS);
 }
 function timerEnding() {
   console.log(6);
@@ -213,7 +214,7 @@ function timerEnding() {
 
   timerNumValue = [];
 
-  clearInterval(interval);
+  clearInterval(intervalTimerJS);
   countHourNum = 0;
   countMinuteNum = 0;
   countSecondNum = 0;
