@@ -1,3 +1,18 @@
+const notyfError = new Notyf({
+  position: {
+    x: "left",
+    y: "bottom",
+  },
+  types: [
+    {
+      type: "error",
+      background: "red",
+      duration: 2000,
+      ripple: false,
+    },
+  ],
+});
+
 const btnPlay = document.querySelector("#btn-playJS");
 const iconPlay = document.querySelector("#icon-playJS");
 const iconSkip = document.querySelector("#icon-skipJS");
@@ -8,11 +23,12 @@ const musicEndPoint = document.querySelector("#musicEndPointJS");
 const minuteLineFill = document.querySelector("#minuteLineFillJS");
 const musicDurationsEl = document.querySelectorAll(".musicDurationsElJS");
 
-let audio = new Audio("/audios/" + musicNames[0].innerText + ".mp3");
 let minuteFcCount = 1;
 let intervalAudioJS;
 let audioDuration;
 let musicDurations = [];
+let musicNumId = 0;
+let audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
 
 musicRadioInputs[0].checked = true;
 audio.loop = false; // 반복재생하지 않음
@@ -29,7 +45,6 @@ musicNames.forEach(El => {
     const durationRefined = moment.utc(CalcDuration * 1000).format("HH:mm:ss");
     musicDurations.push(durationRefined);
     musicDurationsEl[i].innerText = musicDurations[i];
-    console.log(musicDurationsEl[i]);
     i++;
   });
 });
@@ -46,17 +61,20 @@ function showAudioDuration(audioFile) {
     musicEndPoint.innerText = durationRefined;
   });
 }
-function playingMusic() {
+function checkMusicCondition() {
   if (iconPlay.className === "material-icons icon-pause") {
-    iconPlay.innerHTML = "&#xe034;";
-    audio.play();
-    iconPlay.classList.add("icon-play");
-    intervalAudioJS = setInterval(minuteLineFilling, 1000);
-
-    console.log("play");
+    playingMusic();
   } else {
     pauseMusic();
   }
+}
+function playingMusic() {
+  iconPlay.innerHTML = "&#xe034;";
+  audio.play();
+  iconPlay.classList.add("icon-play");
+  intervalAudioJS = setInterval(minuteLineFilling, 1000);
+
+  console.log("play");
 }
 function pauseMusic() {
   audio.pause();
@@ -66,13 +84,13 @@ function pauseMusic() {
   clearInterval(intervalAudioJS);
 }
 function changingMusic() {
-  // pauseMusic();
-  // const musicName = this.id;
-  // audio = new Audio("/audios/" + musicName + ".mp3");
-  // audio.load();
-  // showAudioDuration(audio);
-  // minuteFcCount = 1;
-  // playingMusic();
+  pauseMusic();
+  musicNumId = Number(this.id);
+  audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
+  audio.load();
+  showAudioDuration(audio);
+  minuteFcCount = 1;
+  playingMusic();
 }
 function minuteLineFilling() {
   console.log(minuteFcCount);
@@ -86,14 +104,56 @@ function minuteLineFilling() {
   }
 }
 function skipingMusic() {
-  audio.pause();
-  console.dir(audio);
+  console.log(musicNumId);
+  musicNumId++;
+  if (musicNumId >= 0 && musicNumId < musicRadioInputs.length) {
+    pauseMusic();
+    audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
+    minuteFcCount = 1;
+    audio.load();
+    showAudioDuration(audio);
+    playingMusic();
+    musicRadioInputs.forEach(input => {
+      if (musicNumId === Number(input.id)) {
+        input.checked = true;
+      }
+    });
+  } else {
+    notyfError.open({
+      type: "error",
+      message: "노래가 더 없어요ㅠ",
+    });
+    musicNumId--;
+  }
 }
-function backingMusic() {}
+function backingMusic() {
+  console.log(musicNumId);
+  musicNumId--;
+  if (musicNumId >= 0 && musicNumId < musicRadioInputs.length) {
+    pauseMusic();
+    audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
+    minuteFcCount = 1;
+    audio.load();
+    showAudioDuration(audio);
+    playingMusic();
+    musicRadioInputs.forEach(input => {
+      console.log();
+      if (musicNumId === Number(input.id)) {
+        input.checked = true;
+      }
+    });
+  } else {
+    notyfError.open({
+      type: "error",
+      message: "노래가 더 없어요ㅠ",
+    });
+    musicNumId++;
+  }
+}
 
 showAudioDuration(audio);
 
-btnPlay.addEventListener("click", playingMusic);
+btnPlay.addEventListener("click", checkMusicCondition);
 musicRadioInputs.forEach(input => {
   input.addEventListener("click", changingMusic);
 });

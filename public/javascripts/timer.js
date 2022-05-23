@@ -1,34 +1,3 @@
-const notyfError = new Notyf({
-  position: {
-    x: "left",
-    y: "bottom",
-  },
-  types: [
-    {
-      type: "error",
-      background: "red",
-      duration: 3000,
-      ripple: false,
-    },
-  ],
-});
-
-const notyfAlarm = new Notyf({
-  position: {
-    x: "left",
-    y: "bottom",
-  },
-  types: [
-    {
-      type: "success",
-      background: "green",
-      duration: 10000,
-      ripple: false,
-      message: "Done...!",
-    },
-  ],
-});
-
 const coverPageEndTimer = document.querySelector("#coverPage-endTimerJS");
 const coverPageTyping = coverPageEndTimer.querySelector("#coverPage-typingJS");
 const coverPageBtn = coverPageEndTimer.querySelector("#coverPage-btnJS");
