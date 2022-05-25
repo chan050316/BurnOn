@@ -22,6 +22,9 @@ const musicNames = document.querySelectorAll(".musicNameJS");
 const musicEndPoint = document.querySelector("#musicEndPointJS");
 const minuteLineFill = document.querySelector("#minuteLineFillJS");
 const musicDurationsEl = document.querySelectorAll(".musicDurationsElJS");
+const alarmRadioInputs = document.querySelectorAll("alarmRadioInputJS");
+const alarmNames = document.querySelectorAll(".alarmNameJS");
+const iconAlarmPlays = document.querySelectorAll(".icon-alarmPlayJS");
 
 let minuteFcCount = 1;
 let intervalAudioJS;
@@ -29,6 +32,9 @@ let audioDuration;
 let musicDurations = [];
 let musicNumId = 0;
 let audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
+
+let alarmNumId = 0;
+let alarm = new Audio(`/alarmSounds/${alarmNames[alarmNumId].innerText}.mp3`);
 
 musicRadioInputs[0].checked = true;
 audio.loop = false; // 반복재생하지 않음
@@ -98,14 +104,16 @@ function minuteLineFilling() {
   if (100 === minuteLineGo * minuteFcCount) {
     alert("music done");
   } else {
-    console.log(minuteLineFill.style.width);
+    // console.log(minuteLineFill.style.width);
     minuteLineFill.style.width = `${minuteLineGo * minuteFcCount}%`;
     minuteFcCount++;
   }
 }
 function skipingMusic() {
-  console.log(musicNumId);
+  // console.log(musicNumId);
   musicNumId++;
+  console.log(musicNumId);
+  console.log(musicRadioInputs.length);
   if (musicNumId >= 0 && musicNumId < musicRadioInputs.length) {
     pauseMusic();
     audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
@@ -125,9 +133,10 @@ function skipingMusic() {
     });
     musicNumId--;
   }
+  // console.log(musicNumId);
 }
 function backingMusic() {
-  console.log(musicNumId);
+  // console.log(musicNumId);
   musicNumId--;
   if (musicNumId >= 0 && musicNumId < musicRadioInputs.length) {
     pauseMusic();
@@ -137,7 +146,6 @@ function backingMusic() {
     showAudioDuration(audio);
     playingMusic();
     musicRadioInputs.forEach(input => {
-      console.log();
       if (musicNumId === Number(input.id)) {
         input.checked = true;
       }
@@ -149,6 +157,39 @@ function backingMusic() {
     });
     musicNumId++;
   }
+  // console.log(musicNumId);
+}
+function checkAlarmCondition() {
+  alarmNumId = this.parentNode.previousSibling.id;
+  initAlarm();
+  // console.log(alarmNumId);
+  if (this.className === "material-icons icon-pause icon-alarmPlayJS") {
+    playingAlarm(alarmNumId);
+  } else {
+    pauseAlarm(alarmNumId);
+  }
+}
+function playingAlarm(inputID) {
+  iconAlarmPlays[inputID].innerHTML = "&#xe034;";
+  alarm = new Audio(`/alarmSounds/${alarmNames[inputID].innerText}.mp3`);
+  alarm.load();
+  alarm.play();
+  iconAlarmPlays[inputID].classList.add("icon-play");
+  console.log("play");
+}
+function pauseAlarm(inputID) {
+  iconAlarmPlays[inputID].innerHTML = "&#xe037;";
+  alarm.pause();
+  iconAlarmPlays[inputID].classList.remove("icon-play");
+  console.log("pause");
+}
+function initAlarm() {
+  alarm.pause();
+  alarm.currentTime = 0;
+  iconAlarmPlays.forEach(El => {
+    El.classList.remove("icon-play");
+    El.innerHTML = "&#xe037;";
+  });
 }
 
 showAudioDuration(audio);
@@ -159,3 +200,6 @@ musicRadioInputs.forEach(input => {
 });
 iconSkip.addEventListener("click", skipingMusic);
 iconBack.addEventListener("click", backingMusic);
+iconAlarmPlays.forEach(El => {
+  El.addEventListener("click", checkAlarmCondition);
+});

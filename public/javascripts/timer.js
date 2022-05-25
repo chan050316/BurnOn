@@ -18,7 +18,6 @@ let countHourNum = 0;
 let countMinuteNum = 0;
 let countSecondNum = 0;
 let firtsConnect = true;
-let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
 let intervalTimerJS;
 
 function openAlarmPage() {
@@ -26,7 +25,7 @@ function openAlarmPage() {
 }
 function closeAlarmPage() {
   coverPageEndTimer.style.display = "none";
-  alarm.pause();
+  alarm.pause(); //in audio.js
 }
 function inputMaxlength() {
   if (this.value.length > 2) {
@@ -139,7 +138,7 @@ function countingHour() {
 
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
-    alarm.play();
+    alarm.play(); //in audio.js
     pauseMusic(); //in audio.js
     timerEnding();
     openAlarmPage();

@@ -5,7 +5,7 @@ div.bodyBox-sideMenu#bodyBox-sideMenuJS
     div.button.btn-menu
       span.icon-music.material-icons.sideBar__icon &#xe405;
     div.button.btn-menu
-      span.icon-volume.material-icons.sideBar__icon &#xe050;
+      span.icon-alarm.material-icons.sideBar__icon &#xe855;
     div.sideBar__blank#sideBar__blankJS
       span.material-icons.closeSideBar#closeSideBarJS.hidden &#xe5e1;
   div.option-hamburger#option-hamburgerJS.hidden
@@ -15,10 +15,17 @@ div.bodyBox-sideMenu#bodyBox-sideMenuJS
       form(action="/" + PAGELINK[i], method="get") 
         button.movePageBox #{PAGENAME[i]}
   div.option-music#option-musicJS.hidden
-    -for(i = 0; i < fileNames.length; i++)
+    -for(i = 0; i < musicNames.length; i++)
       div.musicListBox
         input(type="radio", name="audio", id=i).musicRadioInputJS
         div.musicListBox_textBox
-          div.musicListBox_name.musicNameJS #{fileNames[i]}
+          div.musicListBox_name.musicNameJS #{musicNames[i]}
           div.musicListBox_time.musicDurationsElJS 00:00
-  div.option-volume#option-volumeJS.hidden
+  div.option-alarm#option-alarmJS.hidden
+    -for(i = 0; i < alarmNames.length; i++)
+      div.alarmListBox
+        input(type="radio", name="audio", id=i).alarmRadioInputJS
+        div.alarmListBox_textBox
+          div.alarmListBox_name.alarmNameJS #{alarmNames[i]}
+          span.material-icons.icon-pause.icon-alarmPlayJS &#xe037;
+

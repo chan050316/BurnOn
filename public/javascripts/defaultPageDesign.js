@@ -5,9 +5,9 @@ const closeSideBarIcon = document.querySelector("#closeSideBarJS");
 const btnMenu = document.querySelectorAll(".btn-menu");
 const optionHamburge = document.querySelector("#option-hamburgerJS");
 const optionMusic = document.querySelector("#option-musicJS");
-const optionSound = document.querySelector("#option-volumeJS");
+const optionAlarm = document.querySelector("#option-alarmJS");
 
-const options = [optionHamburge, optionMusic, optionSound];
+const options = [optionHamburge, optionMusic, optionAlarm];
 
 function sideBar__open() {
   bodyBoxSideMenu.classList.add("sideBar");
@@ -33,9 +33,9 @@ function sideBar__open() {
         El.classList.remove("hidden");
       }
     });
-  } else if (this.childNodes[0].className.indexOf("icon-volume") === 0) {
+  } else if (this.childNodes[0].className.indexOf("icon-alarm") === 0) {
     options.forEach(El => {
-      if (El.className.indexOf("volume") === -1) {
+      if (El.className.indexOf("alarm") === -1) {
         El.classList.add("hidden");
       } else {
         El.classList.remove("hidden");
