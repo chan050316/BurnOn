@@ -17,14 +17,14 @@ div.bodyBox-sideMenu#bodyBox-sideMenuJS
   div.option-music#option-musicJS.hidden
     -for(i = 0; i < musicNames.length; i++)
       div.musicListBox
-        input(type="radio", name="audio", id=i).musicRadioInputJS
+        input(type="radio", name="music", id=i).musicRadioInputJS
         div.musicListBox_textBox
           div.musicListBox_name.musicNameJS #{musicNames[i]}
           div.musicListBox_time.musicDurationsElJS 00:00
   div.option-alarm#option-alarmJS.hidden
     -for(i = 0; i < alarmNames.length; i++)
       div.alarmListBox
-        input(type="radio", name="audio", id=i).alarmRadioInputJS
+        input(type="radio", name="alarm", id=i).alarmRadioInputJS
         div.alarmListBox_textBox
           div.alarmListBox_name.alarmNameJS #{alarmNames[i]}
           span.material-icons.icon-pause.icon-alarmPlayJS &#xe037;

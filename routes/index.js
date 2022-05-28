@@ -50,15 +50,24 @@ router.get("/pomodoro", (req, res) => {
     );
     console.log("You come this page not first time!");
   }
-  const folder = "./public/audios";
-  fs.readdir(folder, function (error, filelist) {
-    for (i in filelist) {
-      const fileName = filelist[i];
+  const musicFolder = "./public/audios";
+  fs.readdir(musicFolder, function (error, musicfilelist) {
+    for (i in musicfilelist) {
+      const fileName = musicfilelist[i];
       const mp3TextNum = fileName.indexOf(".mp3");
-      filelist[i] = fileName.substr(0, mp3TextNum);
+      musicfilelist[i] = fileName.substr(0, mp3TextNum);
     }
-    res.render("pomodoro", {
-      fileNames: filelist,
+    const alarmFolder = "./public/alarmSounds";
+    fs.readdir(alarmFolder, function (error, alarmfilelist) {
+      for (i in alarmfilelist) {
+        const fileName = alarmfilelist[i];
+        const mp3TextNum = fileName.indexOf(".mp3");
+        alarmfilelist[i] = fileName.substr(0, mp3TextNum);
+      }
+      res.render("pomodoro", {
+        musicNames: musicfilelist,
+        alarmNames: alarmfilelist,
+      });
     });
   });
 });

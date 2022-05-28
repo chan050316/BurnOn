@@ -356,6 +356,7 @@ body {
   background-color: #474747;
   border-radius: 5px;
   width: 0;
+  transition: width 1s linear;
 }
 
 .controlerBox .minuteControlBtnBox {

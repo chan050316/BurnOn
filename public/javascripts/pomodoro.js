@@ -16,7 +16,6 @@ const timeCondition = document.querySelector("#inside-CDCircle-timeJS");
 
 let page = 1;
 let CDRotate = 0;
-let alarm = new Audio("/alarmSounds/" + "alarm1" + ".mp3");
 let workCDDuration;
 let workCDRotate;
 let PomodoroCDDuration;

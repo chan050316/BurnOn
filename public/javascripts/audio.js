@@ -42,7 +42,7 @@ let alarm = new Audio(`/alarmSounds/${alarmNames[alarmNumId].innerText}.mp3`);
 
 alarmRadioInputs[0].checked = true;
 
-let i = 0;
+let arrayCount = 0;
 musicNames.forEach(El => {
   let music = new Audio("/audios/" + El.innerText + ".mp3");
   music.addEventListener("loadedmetadata", () => {
@@ -52,11 +52,10 @@ musicNames.forEach(El => {
     );
     const durationRefined = moment.utc(CalcDuration * 1000).format("HH:mm:ss");
     musicDurations.push(durationRefined);
-    musicDurationsEl[i].innerText = musicDurations[i];
-    i++;
+    musicDurationsEl[arrayCount].innerText = musicDurations[arrayCount];
+    arrayCount++;
   });
 });
-
 function showAudioDuration(audioFile) {
   audio.addEventListener("loadedmetadata", () => {
     const duration = audioFile.duration;
