@@ -6,10 +6,29 @@ const btnMenu = bodyBoxSideMenu.querySelector(".btn-menu");
 const optionHamburge = bodyBoxSideMenu.querySelector("#option-hamburgerJS");
 const movePageBox = optionHamburge.querySelectorAll(".movePageBox");
 const optionTextBoxs = bodyEl.querySelectorAll(".customOption-options__box");
+const customOptionOptionsText = bodyEl.querySelectorAll(
+  ".customOption-options__text"
+);
 const optionBtns = bodyEl.querySelectorAll(".customOption-options__button");
 const optionBtnTexts = bodyEl.querySelectorAll(
   ".customOption-options__button__text"
 );
+const enterBtn = document.querySelector("#enterBtn");
+
+let checkedOption;
+
+if (document.cookie) {
+  const checkedOption = document.cookie.substr(
+    document.cookie.indexOf("=") + 1,
+    document.cookie.length
+  );
+  optionBtns.forEach(btn => {
+    if (btn.previousSibling.previousSibling.innerHTML === checkedOption) {
+      btn.classList.add("checked");
+      btn.firstChild.innerHTML = "disuse";
+    }
+  });
+}
 
 function sideBar__open() {
   bodyBoxSideMenu.classList.add("sideBar");
@@ -19,32 +38,26 @@ function sideBar__open() {
   btnMenu.classList.add("checked");
   optionHamburge.classList.remove("hidden");
 }
-
 function sideBar__close() {
   bodyBoxSideMenu.classList.remove("sideBar");
   closeSideBarIcon.classList.add("hidden");
   optionHamburge.classList.add("hidden");
 }
-
 function closeSideBarIcon__over() {
   closeSideBarIcon.style.transform = "translateX(40%)";
   closeSideBarIcon.style.color = "#e97388";
 }
-
 function closeSideBarIcon__out() {
   closeSideBarIcon.style.transform = "translateX(0%)";
   closeSideBarIcon.style.color = "#f5f5f5";
 }
-
 function textDecorating() {
   const TEXTWIDTH = this.firstChild.offsetWidth;
   this.firstChild.nextSibling.style.width = TEXTWIDTH + "px";
 }
-
 function textDecreasing() {
   this.firstChild.nextSibling.style.width = "0px";
 }
-
 function clickingBtn() {
   if (this.className.indexOf("checked") === -1) {
     optionBtns.forEach(btn => {
@@ -53,11 +66,21 @@ function clickingBtn() {
     });
     this.classList.add("checked");
     this.firstChild.innerHTML = "disuse";
-    console.log(this);
+    checkedOption = this.previousSibling.previousSibling.innerHTML;
+    console.log(checkedOption);
   } else {
     this.classList.remove("checked");
     this.firstChild.innerHTML = "use";
   }
+}
+function sendCookie() {
+  customOptionOptionsText.forEach(El => {
+    if (El.innerHTML === checkedOption) {
+      const value = El.innerHTML;
+      console.log();
+      document.cookie = `customOption=${value};`;
+    }
+  });
 }
 
 btnMenu.addEventListener("click", sideBar__open);
@@ -71,3 +94,4 @@ optionTextBoxs.forEach(boxEl => {
 optionBtns.forEach(Btn => {
   Btn.addEventListener("click", clickingBtn);
 });
+enterBtn.addEventListener("click", sendCookie);
