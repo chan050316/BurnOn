@@ -11,4 +11,5 @@ html(lang="en")
     -for(i=0; i<3; i++)
       form(action='/' + PAGENAME[i], method="get") 
         div.titleBox
-          button.titleBox_title #{INNERTEXT[i]}
+          button.titleBox_title.titleBox_titleJS #{INNERTEXT[i]}
+    script(src="javascripts/home.js")
