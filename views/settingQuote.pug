@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    title setting quote
+    include includes/head.pug
+  body 
+    form(action="/settingQuote/addQuote?_method=put", method="post")
+      input(type="text", name="quote", placeholder="quote") 
+      input(type="text", name="author", placeholder="author")
+      input(type="submit", value="add")
+    -console.log(quoteData)
+    -for(i in quoteData)
+      div #{quoteData[i].id + ", " + quoteData[i].quote_text + ", " + quoteData[i].quote_author}
