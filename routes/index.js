@@ -5,12 +5,21 @@ const models = require("../models");
 
 const musicFolder = "./public/audios";
 const alarmFolder = "./public/alarmSounds";
+let quotes;
+let randumQuote;
+const getQuoteData = async () => {
+  quotes = await models.Quote.findAll();
+  const RandumNum = Math.floor(Math.random() * quotes.length);
+  randumQuote = quotes[RandumNum];
+};
 
 router.get("/", (req, res) => {
   res.render("home");
 });
 
-router.get("/timer", (req, res) => {
+router.get("/timer", async (req, res) => {
+  await getQuoteData();
+
   fs.readdir(musicFolder, function (error, musicfilelist) {
     for (i in musicfilelist) {
       const fileName = musicfilelist[i];
@@ -26,12 +35,15 @@ router.get("/timer", (req, res) => {
       res.render("timer", {
         musicNames: musicfilelist,
         alarmNames: alarmfilelist,
+        quoteData: randumQuote,
       });
     });
   });
 });
 
-router.get("/pomodoro", (req, res) => {
+router.get("/pomodoro", async (req, res) => {
+  await getQuoteData();
+
   const cookie = JSON.stringify(req.cookies);
   if (cookie === "{}") {
     console.log("You come this page first time!");
@@ -67,6 +79,7 @@ router.get("/pomodoro", (req, res) => {
       res.render("pomodoro", {
         musicNames: musicfilelist,
         alarmNames: alarmfilelist,
+        quoteData: randumQuote,
       });
     });
   });
@@ -77,7 +90,7 @@ router.get("/custom", (req, res) => {
 });
 
 router.get("/settingQuote", async (req, res) => {
-  const quotes = await models.Quote.findAll();
+  await getQuoteData();
   // console.log(quotes);
 
   res.render("settingQuote", { quoteData: quotes });
