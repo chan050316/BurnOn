@@ -21,9 +21,11 @@ html(lang="en")
           div.enterBtn#enterBtn apply
         div.customOption-options
           -const options = ["일정 표시", "급식 표시", "잡학사전", "현재 시간 표시", "한강물 온도 표시"]
+          -const optionsCookieNames = ["showSchedule", "showCafeteria", "miscellaneous", "time", "HanRiver"]
           -for(j=0; j < options.length; j++)
             div.customOption-options__box
               div.customOption-options__text #{options[j]}
+              div.optionsCookieNames(style="display:none;") #{optionsCookieNames[j]}
               div.customOption-options__text__decoration
               div.customOption-options__button
                 div.customOption-options__button__text use

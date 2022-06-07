@@ -5,13 +5,18 @@ html(lang="en")
     include includes/head.pug
     link(rel="stylesheet", href="styles/home.css")
   body 
-    div.titleCover(style="display:none") BurnOn
-    -const PAGENAME = ["timer", "pomodoro", "custom"]
-    -const INNERTEXT = ["Timer", "Pomodoro", "Custom"];
-    -for(i=0; i<3; i++)
-      form(action='/' + PAGENAME[i], method="get") 
-        div.titleBox
-          button.titleBox_title.titleBox_titleJS #{INNERTEXT[i]}
-    div.customOption_showSchedule
-      div 주요 일정표시
+    div.titleCover#titleCoverJS(style="display:none") BurnOn
+    form(action='/timer', method="get") 
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Timer
+    form(action='/pomodoro', method="get") 
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Pomodoro
+    form#customForm(action='/custom', method="get")
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Custom
+    div.customOption_showSchedule.titleBox(style="display:none")
+      div.titleBox_title 일정 표시
+    div.customOption_showCafeteria.titleBox(style="display:none")
+      div.titleBox_title 급식 표시
     script(src="javascripts/home.js")

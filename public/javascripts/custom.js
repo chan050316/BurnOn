@@ -75,9 +75,9 @@ function clickingBtn() {
 }
 function sendCookie() {
   customOptionOptionsText.forEach(El => {
-    if (El.innerHTML === checkedOption) {
-      const value = El.innerHTML;
-      console.log();
+    if (El.nextSibling.innerHTML === checkedOption) {
+      const value = El.nextSibling.innerHTML;
+      console.log(value);
       document.cookie = `customOption=${value};`;
     }
   });
