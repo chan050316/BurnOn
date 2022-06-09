@@ -41,9 +41,24 @@ body .titleBox .titleBox_title {
   text-align: center;
   line-height: 100vh;
   transition-duration: 0.5s;
-  cursor: pointer;
 }
 
+body form .titleBox .titleBox_title {
+  cursor: pointer;
+}
 form .titleBox_title:hover {
   background-color: rgba(237, 237, 237, 0.3);
+}
+
+body .titleBox .customPageLinkedBtn {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  background-color: gray;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
 }

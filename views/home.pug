@@ -16,7 +16,18 @@ html(lang="en")
       div.titleBox
         button.titleBox_title.titleBox_titleJS Custom
     div.customOption_showSchedule.titleBox(style="display:none")
-      div.titleBox_title 일정 표시
+      div.titleBox_title.schedule 
+      include includes/customPageLinkedBtn.pug
     div.customOption_showCafeteria.titleBox(style="display:none")
       div.titleBox_title 급식 표시
-    script(src="javascripts/home.js")
+      include includes/customPageLinkedBtn.pug
+    div.customOption_miscellaneous.titleBox(style="display:none")
+      div.titleBox_title 잡학 사전
+      include includes/customPageLinkedBtn.pug
+    div.customOption_time.titleBox(style="display:none")
+      div.titleBox_title.currentTime#currentTimeJS
+      include includes/customPageLinkedBtn.pug
+    div.customOption_HanRiver.titleBox(style="display:none")
+      div.titleBox_title 한강 물 온도
+      include includes/customPageLinkedBtn.pug
+    script(type="module" src="javascripts/home.js")
