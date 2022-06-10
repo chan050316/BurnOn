@@ -5,7 +5,7 @@ const closeSideBarIcon = sideBarBlank.querySelector("#closeSideBarJS");
 const btnMenu = bodyBoxSideMenu.querySelector(".btn-menu");
 const optionHamburge = bodyBoxSideMenu.querySelector("#option-hamburgerJS");
 const movePageBox = optionHamburge.querySelectorAll(".movePageBox");
-const optionTextBoxs = bodyEl.querySelectorAll(".customOption-options__box");
+const optionsBoxs = bodyEl.querySelectorAll(".customOption-options__box");
 const customOptionOptionsText = bodyEl.querySelectorAll(
   ".customOption-options__text"
 );
@@ -53,10 +53,10 @@ function closeSideBarIcon__out() {
 }
 function textDecorating() {
   const TEXTWIDTH = this.firstChild.offsetWidth;
-  this.firstChild.nextSibling.style.width = TEXTWIDTH + "px";
+  this.firstChild.nextSibling.nextSibling.style.width = TEXTWIDTH + "px";
 }
 function textDecreasing() {
-  this.firstChild.nextSibling.style.width = "0px";
+  this.firstChild.nextSibling.nextSibling.style.width = "0px";
 }
 function clickingBtn() {
   if (this.className.indexOf("checked") === -1) {
@@ -87,7 +87,7 @@ btnMenu.addEventListener("click", sideBar__open);
 sideBarBlank.addEventListener("click", sideBar__close);
 sideBarBlank.addEventListener("mouseover", closeSideBarIcon__over);
 sideBarBlank.addEventListener("mouseout", closeSideBarIcon__out);
-optionTextBoxs.forEach(boxEl => {
+optionsBoxs.forEach(boxEl => {
   boxEl.addEventListener("mouseover", textDecorating);
   boxEl.addEventListener("mouseout", textDecreasing);
 });

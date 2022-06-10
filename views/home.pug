@@ -5,6 +5,7 @@ html(lang="en")
     include includes/head.pug
     link(rel="stylesheet", href="styles/home.css")
   body 
+    -console.log(cafeteriaMenusData)
     div.titleCover#titleCoverJS(style="display:none") BurnOn
     form(action='/timer', method="get") 
       div.titleBox
@@ -16,10 +17,13 @@ html(lang="en")
       div.titleBox
         button.titleBox_title.titleBox_titleJS Custom
     div.customOption_showSchedule.titleBox(style="display:none")
-      div.titleBox_title.schedule 
+      div.titleBox_title.schedule#scheduleJS
       include includes/customPageLinkedBtn.pug
     div.customOption_showCafeteria.titleBox(style="display:none")
-      div.titleBox_title 급식 표시
+      div#cafeteriaMenuJS(style="display:none") #{cafeteriaMenusData}
+      div.titleBox_title
+        div.cafeteriaMenu#cafeteriaMenuJS__lunch
+        div.cafeteriaMenu#cafeteriaMenuJS__dinner
       include includes/customPageLinkedBtn.pug
     div.customOption_miscellaneous.titleBox(style="display:none")
       div.titleBox_title 잡학 사전

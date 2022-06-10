@@ -1,0 +1,22 @@
+{
+  "Mon": {
+    "lunch": ["(현충일)"],
+    "dinner": ["(현충일)"]
+  },
+  "Tue": {
+    "lunch": ["냠냠"],
+    "dinner": ["냠냠"]
+  },
+  "Wed": {
+    "lunch": [],
+    "dinner": []
+  },
+  "Thu": {
+    "lunch": [],
+    "dinner": []
+  },
+  "Fri": {
+    "lunch": ["하하ㅣ"],
+    "dinner": ["ㅎㅎ이"]
+  }
+}
