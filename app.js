@@ -25,7 +25,7 @@ app.use(methodOverride("_method"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(PORT + "에서 대기중");

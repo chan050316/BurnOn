@@ -57,8 +57,8 @@ function getTime() {
   if (Number(day) === 0 || Number(day) === 6) {
     cafeteriaMenuLunch.innerHTML = "Weekend";
   } else {
-    cafeteriaMenuLunch.innerHTML = `아침 : ${TodaysMenus.lunch}`;
-    cafeteriaMenuDinner.innerHTML = `점심 : ${TodaysMenus.dinner}`;
+    cafeteriaMenuLunch.innerHTML = `점심 : ${TodaysMenus.lunch}`;
+    cafeteriaMenuDinner.innerHTML = `저녁 : ${TodaysMenus.dinner}`;
   }
 }
 
