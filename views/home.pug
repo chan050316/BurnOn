@@ -4,14 +4,34 @@ html(lang="en")
     title Home
     include includes/head.pug
     link(rel="stylesheet", href="styles/home.css")
-  body 
-    div.titleCover(style="display:none") BurnOn
-    -const PAGENAME = ["timer", "pomodoro", "custom"]
-    -const INNERTEXT = ["Timer", "Pomodoro", "Custom"];
-    -for(i=0; i<3; i++)
-      form(action='/' + PAGENAME[i], method="get") 
-        div.titleBox
-          button.titleBox_title.titleBox_titleJS #{INNERTEXT[i]}
-    div.customOption_showSchedule
-      div 주요 일정표시
-    script(src="javascripts/home.js")
+  body.banselect
+    -console.log(cafeteriaMenusData)
+    div.titleCover#titleCoverJS(style="display:none") BurnOn
+    form(action='/timer', method="get") 
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Timer
+    form(action='/pomodoro', method="get") 
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Pomodoro
+    form#customForm(action='/custom', method="get")
+      div.titleBox
+        button.titleBox_title.titleBox_titleJS Custom
+    div.customOption_showSchedule.titleBox(style="display:none")
+      div.titleBox_title.schedule#scheduleJS
+      include includes/customPageLinkedBtn.pug
+    div.customOption_showCafeteria.titleBox(style="display:none")
+      div#cafeteriaMenuJS(style="display:none") #{cafeteriaMenusData}
+      div.titleBox_title
+        div.cafeteriaMenu#cafeteriaMenuJS__lunch
+        div.cafeteriaMenu#cafeteriaMenuJS__dinner
+      include includes/customPageLinkedBtn.pug
+    div.customOption_miscellaneous.titleBox(style="display:none")
+      div.titleBox_title 잡학 사전
+      include includes/customPageLinkedBtn.pug
+    div.customOption_time.titleBox(style="display:none")
+      div.titleBox_title.currentTime#currentTimeJS
+      include includes/customPageLinkedBtn.pug
+    div.customOption_HanRiver.titleBox(style="display:none")
+      div.titleBox_title 한강 물 온도
+      include includes/customPageLinkedBtn.pug
+    script(type="module" src="javascripts/home.js")

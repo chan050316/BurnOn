@@ -1,7 +1,6 @@
 {
   "name": "burnon",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -21,9 +20,9 @@
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
     "express": "^4.17.3",
-    "global": "^4.4.0",
     "method-override": "^3.0.0",
     "mysql2": "^2.3.3",
+    "node-schedule": "^2.1.0",
     "notyf": "^3.10.0",
     "pug": "^3.0.2",
     "sequelize": "^6.17.0",

@@ -318,11 +318,20 @@ body {
   height: 63vh;
 }
 
-.bodyBox-center .qouteBox {
+.bodyBox-center .quoteBox {
   height: 6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bodyBox-center .quoteBox .quote {
+  font-size: 17px;
+}
+
+.bodyBox-center .quoteBox .writer {
+  margin-top: 2px;
+  font-size: 13px;
 }
 
 .bodyBox-center .controlerBox {
