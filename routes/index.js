@@ -5,7 +5,7 @@ const models = require("../models");
 
 const musicFolder = "./public/audios";
 const alarmFolder = "./public/alarmSounds";
-const cafeteriaMenusData = "./public/data/cafeteriaMenus.json";
+const cafeteriaMenusData = "./public/data/cafeteriaMenus";
 let quotes;
 let randumQuote;
 const getQuoteData = async () => {
