@@ -21,16 +21,19 @@ body .titleBox {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 form:nth-child(2) .titleBox {
-  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  background-image: url(../images/거꾸로캠퍼스.webp);
 }
 form:nth-child(3) .titleBox {
-  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  background-image: url(../images/거꾸로캠퍼스.webp);
 }
 form:nth-child(4) .titleBox {
-  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  background-image: url(../images/거꾸로캠퍼스.webp);
 }
 
 body .titleBox .titleBox_title {
@@ -69,5 +72,6 @@ body .titleBox .customPageLinkedBtn {
 
 body .titleBox .cafeteriaMenu {
   height: auto;
-  line-height: normal;
+  line-height: 1.5;
+  font-size: 18px;
 }

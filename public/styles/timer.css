@@ -102,7 +102,9 @@
 .timerBox .insideImageCircle {
   position: absolute;
   z-index: 10;
-  background-image: url(../images/407\ Dank\ on\ Twitter.png);
+  background-image: url(../images/거꾸로캠퍼스.webp);
+  background-position: center;
+  background-size: cover;
   height: 300px;
   width: 300px;
   border-radius: 50%;
