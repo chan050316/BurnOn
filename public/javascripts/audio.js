@@ -164,6 +164,7 @@ function backingMusic() {
 }
 function changingAlarm() {
   alarm = new Audio(`/alarmSounds/${alarmNames[this.id].innerText}.mp3`);
+  initAlarm();
 }
 function checkAlarmCondition() {
   alarmNumId = this.parentNode.previousSibling.id;
