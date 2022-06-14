@@ -163,8 +163,8 @@ function backingMusic() {
   // console.log(musicNumId);
 }
 function changingAlarm() {
-  alarm = new Audio(`/alarmSounds/${alarmNames[this.id].innerText}.mp3`);
   initAlarm();
+  alarm = new Audio(`/alarmSounds/${alarmNames[this.id].innerText}.mp3`);
 }
 function checkAlarmCondition() {
   alarmNumId = this.parentNode.previousSibling.id;
