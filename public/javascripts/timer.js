@@ -33,8 +33,6 @@ function inputMaxlength() {
   }
 }
 function timerStarting() {
-  console.log(1);
-
   if (
     timerNums[0].value <= 20 &&
     timerNums[1].value !== "" &&
@@ -95,15 +93,11 @@ function timerStarting() {
       message: "60분보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
   } else if (timerNums[1].value === "") {
-    notyfError.open({
-      type: "error",
-      message: "값을 입력해주세요ㅠㅠㅠ 후엥",
-    });
+    timerNums[1].value = 0;
+    timerStarting();
   }
 }
 function countingSecond() {
-  console.log(2);
-
   if (countSecondNum == 60) {
     countSecondNum = 0;
     countingMinute();
@@ -112,12 +106,9 @@ function countingSecond() {
     timerSeconds.forEach(El => {
       El.style.transform = `translateY(-${60 * 35 - countSecondNum * 35}px)`;
     });
-    // console.log(countSecondNum);
   }
 }
 function countingMinute() {
-  console.log(3);
-
   if (countMinuteNum == timerNumValue[1] && timerNumValue[1] !== 0) {
     timerNumValue[1] = 60;
     timerNums[1].value = 60;
@@ -130,16 +121,13 @@ function countingMinute() {
         60 * 35 - (60 - timerNumValue[1]) * 35 - countMinuteNum * 35
       }px)`;
     });
-    // console.log(countMinuteNum);
   }
 }
 function countingHour() {
-  console.log(4);
-
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
+    initAlarm(); //in audio.js
     alarm.play(); //in audio.js
-    pauseMusic(); //in audio.js
     timerEnding();
     openAlarmPage();
   } else {
@@ -148,11 +136,16 @@ function countingHour() {
         60 * 35 - (60 - timerNumValue[0]) * 35 - countHourNum * 35
       }px)`;
     });
+    countMinuteNum = 0;
+    countingMinute();
+    // if (countHourNum == timerNumValue[0]) {
+    //   // if the remaining time is less than 1 hour
+    //   timerTimeBoxs[0].style = "display:none";
+    //   timerTimeBoxs[2].style = "display:block";
+    // }
   }
 }
 function timerStoping() {
-  console.log(5);
-
   timerStart.style.display = "flex";
   timerStop.style.display = "none";
   loadingLeft.style.animationPlayState = "paused";
@@ -162,8 +155,6 @@ function timerStoping() {
   clearInterval(intervalTimerJS);
 }
 function timerEnding() {
-  console.log(6);
-
   timerNums.forEach(El => {
     El.classList.remove("hidden");
     El.value = "";
@@ -188,6 +179,13 @@ function timerEnding() {
   countSecondNum = 0;
   firtsConnect = true;
 }
+function keyup(e) {
+  if (e.key === " ") {
+    checkMusicCondition();
+  } else if (e.key === "Enter") {
+    timerStarting();
+  }
+}
 
 coverPageBtn.addEventListener("click", closeAlarmPage);
 timerNums.forEach(input => {
@@ -196,3 +194,4 @@ timerNums.forEach(input => {
 timerStart.addEventListener("click", timerStarting);
 timerStop.addEventListener("click", timerStoping);
 timerEnd.addEventListener("click", timerEnding);
+window.addEventListener("keyup", keyup);

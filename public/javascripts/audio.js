@@ -39,6 +39,8 @@ audio.volume = 1;
 
 let alarmNumId = 0;
 let alarm = new Audio(`/alarmSounds/${alarmNames[alarmNumId].innerText}.mp3`);
+alarm.loop = true;
+alarm.volume = 1;
 
 alarmRadioInputs[0].checked = true;
 
@@ -177,10 +179,10 @@ function playingAlarm(inputID) {
   initAlarm();
   iconAlarmPlays[inputID].innerHTML = "&#xe034;";
   alarm = new Audio(`/alarmSounds/${alarmNames[inputID].innerText}.mp3`);
+  alarm.loop = true;
   alarm.load();
   alarm.play();
   iconAlarmPlays[inputID].classList.add("icon-play");
-  console.log(iconAlarmPlays[inputID].className);
   console.log("play");
 }
 function pauseAlarm(inputID) {
