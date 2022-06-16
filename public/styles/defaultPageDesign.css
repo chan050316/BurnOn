@@ -390,8 +390,10 @@ body {
   color: white;
 }
 
-.controlerBox .minuteControlBtnBox .btn-play .icon-play {
-  font-size: 27px;
+.controlerBox .minuteControlBtnBox .btn-play .icon-play,
+.controlerBox .minuteControlBtnBox .btn-play .icon-pause {
+  font-size: 24px;
+  text-align: center;
 }
 
 .hidden {

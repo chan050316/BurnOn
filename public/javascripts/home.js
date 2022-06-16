@@ -53,7 +53,6 @@ function getTime() {
     cafeteriaMenuJson.Sat,
   ];
   const TodaysMenus = DAYOFWEEK[Number(day)];
-  console.log(DAYOFWEEK[Number(day)]);
   if (Number(day) === 0 || Number(day) === 6) {
     cafeteriaMenuLunch.innerHTML = "Weekend";
   } else {
