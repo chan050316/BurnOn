@@ -46,7 +46,6 @@ body .titleBox .titleBox_title {
   justify-content: center;
   align-items: center;
   text-align: center;
-  line-height: 100vh;
   transition-duration: 0.5s;
 }
 
