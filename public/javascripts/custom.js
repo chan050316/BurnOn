@@ -80,7 +80,7 @@ function clickingBtn() {
       btn.firstChild.innerHTML = "use";
     });
     this.classList.add("checked");
-    this.firstChild.innerHTML = "disuse";
+    this.firstChild.innerHTML = "unused";
     checkedOption = this.previousSibling.previousSibling.innerHTML;
     console.log(checkedOption);
   } else {

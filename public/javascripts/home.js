@@ -55,6 +55,7 @@ function getTime() {
   const TodaysMenus = DAYOFWEEK[Number(day)];
   if (Number(day) === 0 || Number(day) === 6) {
     cafeteriaMenuLunch.innerHTML = "Weekend";
+    cafeteriaMenuDinner.style = "display:none";
   } else {
     cafeteriaMenuLunch.innerHTML = `점심 : ${TodaysMenus.lunch}`;
     cafeteriaMenuDinner.innerHTML = `저녁 : ${TodaysMenus.dinner}`;
