@@ -122,8 +122,8 @@ body {
   border-radius: 0;
   background-color: #050505;
   margin: 0;
-  width: 5vw;
-  height: 5vw;
+  width: 72px;
+  height: 72px;
   justify-content: center;
   color: #f5f5f5;
 }
@@ -141,9 +141,9 @@ body {
 }
 
 .sideBar .sideBar__blank {
-  height: calc(100vh - 15vw);
+  height: calc(100vh - 216px);
   background-color: #050505;
-  width: 5vw;
+  width: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -322,11 +322,13 @@ body {
   height: 6vh;
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: center;
 }
 
 .bodyBox-center .quoteBox .quote {
   font-size: 17px;
+  text-align: center;
 }
 
 .bodyBox-center .quoteBox .writer {
@@ -372,7 +374,7 @@ body {
   height: 100%;
   width: 35vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -385,7 +387,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 calc(17.5vw - 67px);
   box-shadow: 1px 2px 8px #9c9c9c, -1px 2px 8px #9c9c9c;
   color: white;
 }

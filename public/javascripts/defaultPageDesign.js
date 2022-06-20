@@ -13,6 +13,7 @@ function sideBar__open() {
   bodyBoxSideMenu.classList.add("sideBar");
   closeSideBarIcon.classList.remove("hidden");
   btnMenu.forEach(div => {
+    div.style = "display:flex";
     div.classList.add("sideBar__btn-menu");
     div.classList.remove("checked");
   });
@@ -47,6 +48,12 @@ function sideBar__open() {
 function sideBar__close() {
   bodyBoxSideMenu.classList.remove("sideBar");
   closeSideBarIcon.classList.add("hidden");
+  if (
+    matchMedia("screen and (min-width: 320px) and (max-width: 480px)").matches
+  ) {
+    btnMenu[1].style = "display:none";
+    btnMenu[2].style = "display:none";
+  }
   options.forEach(option => {
     option.classList.add("hidden");
   });
