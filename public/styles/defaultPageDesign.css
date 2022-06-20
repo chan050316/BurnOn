@@ -381,6 +381,7 @@ body {
 .controlerBox .minuteControlBtnBox .icon-skip {
   font-size: 40px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .controlerBox .minuteControlBtnBox .btn-play {

@@ -56,65 +56,28 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .bodyBox-center {
-    width: 100vw;
+  .intro-box .intro-typingBox {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .titleBox .mainTitle {
+  .intro-box .intro-typingBox .intro-typing .inputs input {
+    width: 135px;
+    height: 60px;
+  }
+
+  .intro-box .intro-typingBox .intro-typing .subText {
+    margin: 30px 25px 50px 25px;
     font-size: 30px;
   }
 
-  .titleBox .subTitle {
-    font-size: 9px;
+  .intro-box .intro-typingBox .whiteLine {
+    margin: 0 0 50px 0;
+    height: 2px;
+    width: 330px;
   }
 
-  .bodyBox-center .timerBox {
-    /* auto : 63vh */
-    height: 60vh;
-  }
-
-  .bodyBox-center .quoteBox {
-    height: 9vh;
-    width: 90%;
-    margin: 0 5%;
-  }
-
-  .bodyBox-sideMenu {
-    position: absolute;
-    width: 120px;
-    height: 100vh;
-  }
-
-  .bodyBox-sideMenu:nth-child(2) {
-    left: 0;
-  }
-
-  .bodyBox-sideMenu:nth-child(4) {
-    right: 0;
-  }
-
-  .sideBar {
-    width: 100vw;
-  }
-
-  .bodyBox-sideMenu .btn-menu:nth-child(2),
-  .bodyBox-sideMenu .btn-menu:nth-child(3) {
-    display: none;
-  }
-
-  .timerBox .decoration {
-    display: none;
-  }
-
-  .controlerBox .minuteBox {
-    width: 90%;
-  }
-
-  .controlerBox .minuteLine {
-    width: 90.5%;
-  }
-
-  .controlerBox .minuteControlBtnBox {
-    width: 70%;
+  .intro-box .intro-btnBox {
+    transform: translateY(43px);
   }
 }

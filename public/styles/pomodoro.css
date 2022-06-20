@@ -49,10 +49,6 @@
   cursor: pointer;
 }
 
-.intro-box .intro-typingBox {
-  display: flex;
-}
-
 .intro-box .introText-box {
   display: flex;
   flex-direction: column;
@@ -87,6 +83,10 @@
   100% {
     transform: scale(100%);
   }
+}
+
+.intro-box .intro-typingBox {
+  display: flex;
 }
 
 .intro-box .intro-typingBox .intro-typing {
@@ -147,6 +147,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .timerBox .backGroundCircle {
@@ -254,14 +255,14 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: cover;
   height: 363px;
   width: 363px;
-  border-radius: 50%;
+  border-radius: 70%;
   transform: rotate(0deg);
   transition-timing-function: linear;
 }
 
 .timerBox .inside-CDCircle-holeDesign1 {
   position: absolute;
-  z-index: 11;
+  z-index: 10;
   height: 95px;
   width: 95px;
   background-color: #c4c4c4;
@@ -270,7 +271,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .timerBox .inside-CDCircle-holeDesign2 {
   position: absolute;
-  z-index: 12;
+  z-index: 10;
   height: 90px;
   width: 90px;
   background-color: #f5f5f5;
@@ -279,7 +280,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .timerBox .inside-CDCircle-holeDesign3 {
   position: absolute;
-  z-index: 13;
+  z-index: 10;
   height: 85px;
   width: 85px;
   background-color: #c4c4c4;
@@ -288,7 +289,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .timerBox .inside-CDCircle-holeDesign4 {
   position: absolute;
-  z-index: 14;
+  z-index: 10;
   height: 80px;
   width: 80px;
   background-color: #f5f5f5;
@@ -297,5 +298,5 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .timerBox .inside-CDCircle-time {
   position: absolute;
-  z-index: 15;
+  z-index: 10;
 }

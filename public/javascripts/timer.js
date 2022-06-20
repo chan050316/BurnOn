@@ -92,7 +92,7 @@ function timerStarting() {
       type: "error",
       message: "60분보다 적은 값을 입력해주세요ㅠㅠㅠ 후엥",
     });
-  } else if (timerNums[1].value === "" || timerNums[0].value === "") {
+  } else if (timerNums[1].value === "" && timerNums[0].value === "") {
     notyfError.open({
       type: "error",
       message: "값을 입력해주세요ㅠㅠㅠ 후엥",
