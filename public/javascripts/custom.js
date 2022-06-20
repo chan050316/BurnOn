@@ -40,7 +40,7 @@ if (document.cookie) {
   optionBtns.forEach(btn => {
     if (btn.previousSibling.previousSibling.innerHTML === checkedOption) {
       btn.classList.add("checked");
-      btn.firstChild.innerHTML = "disuse";
+      btn.firstChild.innerHTML = "unuse";
     }
   });
 }
@@ -80,7 +80,7 @@ function clickingBtn() {
       btn.firstChild.innerHTML = "use";
     });
     this.classList.add("checked");
-    this.firstChild.innerHTML = "unused";
+    this.firstChild.innerHTML = "unuse";
     checkedOption = this.previousSibling.previousSibling.innerHTML;
     console.log(checkedOption);
   } else {

@@ -44,6 +44,7 @@
   color: #f5f5f5;
   border-radius: 5px;
   line-height: 40px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -78,6 +79,7 @@
   font-size: 18px;
   margin-left: 40px;
 }
+
 .customOption-options__box .customOption-options__text__decoration {
   position: absolute;
   z-index: -10;
@@ -115,9 +117,9 @@
 }
 
 .sideBar .sideBar__blank {
-  height: calc(100vh - 5vw);
+  height: calc(100vh - 72px);
   background-color: #050505;
-  width: 5vw;
+  width: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
