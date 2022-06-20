@@ -86,14 +86,19 @@ function clickingBtn() {
   } else {
     this.classList.remove("checked");
     this.firstChild.innerHTML = "use";
+    checkedOption = "";
+    console.log(checkedOption);
   }
 }
 function sendCookie() {
   customOptionOptionsText.forEach(El => {
+    console.log(checkedOption);
     if (El.nextSibling.innerHTML === checkedOption) {
       const value = El.nextSibling.innerHTML;
       console.log(value);
       document.cookie = `customOption=${value};`;
+    } else if (checkedOption === "") {
+      document.cookie = `customOption=;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
     }
   });
   notyfSuccess.open({
