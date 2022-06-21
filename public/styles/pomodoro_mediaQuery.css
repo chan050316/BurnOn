@@ -56,6 +56,10 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .intro-box .introText-box .intro-text {
+    font-size: 30px;
+  }
+
   .intro-box .intro-typingBox {
     flex-direction: column;
     align-items: center;

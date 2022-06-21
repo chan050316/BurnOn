@@ -31,6 +31,7 @@
 .intro-box .intro-backBtn .icon-back {
   background: none;
   color: white;
+  font-size: 24px;
 }
 .intro-box .intro-backBtn .icon-back:hover {
   cursor: pointer;
@@ -39,11 +40,11 @@
 .intro-box .icon-intro-close {
   position: fixed;
   z-index: 10;
-  right: 53px;
+  right: 28px;
   top: 47px;
   height: 50px;
   width: 50px;
-  font-size: 50px;
+  font-size: 35px;
 }
 .intro-box .icon-intro-close:hover {
   cursor: pointer;
