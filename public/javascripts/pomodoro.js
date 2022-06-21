@@ -61,7 +61,6 @@ function sliding() {
 function closeIntro() {
   introBox.remove();
 }
-
 function startingPomodoro() {
   const inputValues = [];
 
@@ -98,7 +97,6 @@ function startingPomodoro() {
     console.log(PomodoroCDDuration);
   }
 }
-
 function pomodoroWork(duration, rotate) {
   timeCondition.innerHTML = "Work";
   coverPageTyping.innerText = "Break Time";

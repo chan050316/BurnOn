@@ -8,7 +8,16 @@ const cafeteriaMenuLunch = document.querySelector("#cafeteriaMenuJS__lunch");
 const cafeteriaMenuDinner = document.querySelector("#cafeteriaMenuJS__dinner");
 
 const cookie = document.cookie;
-const customOption = cookie.substr(cookie.indexOf("=") + 1, cookie.length);
+const getCookie = cookie_name => {
+  // Construct a RegExp object as to include the variable name
+  const re = new RegExp(`(?<=${cookie_name}=)[^;]*`);
+  try {
+    return document.cookie.match(re)[0]; // Will raise TypeError if cookie is not found
+  } catch {
+    return "this-cookie-doesn't-exist";
+  }
+};
+const customOption = getCookie("customOption");
 const countDownName = "2차 피드백";
 const countDownDate = new Date("June 22, 2022 00:00:00").getTime();
 const cafeteriaMenuText = cafeteriaMenu.innerHTML;
