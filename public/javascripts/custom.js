@@ -1,18 +1,3 @@
-const notyfSuccess = new Notyf({
-  position: {
-    x: "left",
-    y: "bottom",
-  },
-  types: [
-    {
-      type: "sucess",
-      background: "green",
-      duration: 2000,
-      ripple: false,
-    },
-  ],
-});
-
 const bodyEl = document.querySelector("body");
 const bodyBoxSideMenu = bodyEl.querySelector("#bodyBox-sideMenuJS");
 const sideBarBlank = bodyBoxSideMenu.querySelector("#sideBar__blankJS");

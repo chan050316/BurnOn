@@ -57,27 +57,48 @@ function sliding() {
     page += 1;
   }
 }
+
 function closeIntro() {
   introBox.remove();
 }
-function startingPomodoro() {
-  introInputsBox.remove();
 
+function startingPomodoro() {
   const inputValues = [];
 
   inputs.forEach(input => {
+    console.log(input.value);
     inputValues.push(Number(input.value));
   });
 
-  workCDDuration = inputValues[0] * 3600 + inputValues[1] * 60;
-  workCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
-  PomodoroCDDuration = inputValues[2] * 3600 + inputValues[3] * 60;
-  PomodoroCDRotate = (inputValues[2] * 60 + inputValues[3]) * 360;
-  pomodoroWork(workCDDuration, workCDRotate);
+  console.log(inputValues);
+  console.log(inputValues[0] === 0 || inputValues[1] === 0);
 
-  console.log(workCDDuration);
-  console.log(PomodoroCDDuration);
+  if (
+    (inputValues[0] === 0 && inputValues[1] === 0) ||
+    (inputValues[2] === 0 && inputValues[3] === 0) ||
+    (inputValues[0] === 0 &&
+      inputValues[1] === 0 &&
+      inputValues[2] === 0 &&
+      inputValues[3] === 0)
+  ) {
+    notyfError.open({
+      type: "error",
+      message: "값을 입력해주세요ㅠ",
+    });
+  } else {
+    introInputsBox.remove();
+
+    workCDDuration = inputValues[0] * 3600 + inputValues[1] * 60;
+    workCDRotate = (inputValues[0] * 60 + inputValues[1]) * 360;
+    PomodoroCDDuration = inputValues[2] * 3600 + inputValues[3] * 60;
+    PomodoroCDRotate = (inputValues[2] * 60 + inputValues[3]) * 360;
+    pomodoroWork(workCDDuration, workCDRotate);
+
+    console.log(workCDDuration);
+    console.log(PomodoroCDDuration);
+  }
 }
+
 function pomodoroWork(duration, rotate) {
   timeCondition.innerHTML = "Work";
   coverPageTyping.innerText = "Breaking Time";

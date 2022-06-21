@@ -1,18 +1,3 @@
-const notyfError = new Notyf({
-  position: {
-    x: "left",
-    y: "bottom",
-  },
-  types: [
-    {
-      type: "error",
-      background: "red",
-      duration: 2000,
-      ripple: false,
-    },
-  ],
-});
-
 const btnPlay = document.querySelector("#btn-playJS");
 const iconPlay = document.querySelector("#icon-playJS");
 const iconSkip = document.querySelector("#icon-skipJS");
