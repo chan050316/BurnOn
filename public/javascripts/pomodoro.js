@@ -101,7 +101,7 @@ function startingPomodoro() {
 
 function pomodoroWork(duration, rotate) {
   timeCondition.innerHTML = "Work";
-  coverPageTyping.innerText = "Breaking Time";
+  coverPageTyping.innerText = "Break Time";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
   CDCircle.style.transitionDuration = `${duration}s`;
@@ -119,7 +119,7 @@ function pomodoroWork(duration, rotate) {
 }
 function pomodoroBreak(duration, rotate) {
   timeCondition.innerHTML = "Break";
-  coverPageTyping.innerText = "Working Time";
+  coverPageTyping.innerText = "Work Time";
 
   CDCircle.style.transform = `rotate(${(CDRotate += rotate)}deg)`;
   CDCircle.style.transitionDuration = `${duration}s`;
