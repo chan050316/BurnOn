@@ -189,7 +189,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 35px;
   color: white;
   text-align: center;
-  transform: translateY(3px);
+  transform: translateY(5px);
 }
 
 .timerBox .insideImageOveray .timerControler {
