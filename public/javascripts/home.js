@@ -7,7 +7,6 @@ const cafeteriaMenu = document.querySelector("#cafeteriaMenuJS");
 const cafeteriaMenuLunch = document.querySelector("#cafeteriaMenuJS__lunch");
 const cafeteriaMenuDinner = document.querySelector("#cafeteriaMenuJS__dinner");
 
-const cookie = document.cookie;
 const getCookie = cookie_name => {
   // Construct a RegExp object as to include the variable name
   const re = new RegExp(`(?<=${cookie_name}=)[^;]*`);
@@ -47,7 +46,7 @@ function getTime() {
 
   // option-showSchedule
   const distance = countDownDate - date;
-  const Dday = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const Dday = Math.ceil(distance / (1000 * 60 * 60 * 24));
   schedule.innerHTML = `${countDownName} D-${Dday}`;
 
   // option-showcafeteriaMenu
