@@ -17,18 +17,26 @@ const enterBtn = document.querySelector("#enterBtn");
 
 let checkedOption;
 
-const getCookie = cookie_name => {
-  // Construct a RegExp object as to include the variable name
-  const re = new RegExp(`(?<=${cookie_name}=)[^;]*`);
-  try {
-    return document.cookie.match(re)[0]; // Will raise TypeError if cookie is not found
-  } catch {
-    return "this-cookie-doesn't-exist";
-  }
-};
-checkedOption = getCookie("customOption");
+const getCookie = key => {
+  let cookieKey = key + "=";
+  let result = "";
+  const cookieArr = document.cookie.split(";");
 
-if (checkedOption) {
+  for (let i = 0; i < cookieArr.length; i++) {
+    if (cookieArr[i][0] === " ") {
+      cookieArr[i] = cookieArr[i].substring(1);
+    }
+
+    if (cookieArr[i].indexOf(cookieKey) === 0) {
+      result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+      return result;
+    }
+  }
+  return result;
+};
+
+if (getCookie("customOption")) {
+  const checkedOption = getCookie("customOption");
   optionBtns.forEach(btn => {
     if (btn.previousSibling.previousSibling.innerHTML === checkedOption) {
       btn.classList.add("checked");
