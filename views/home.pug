@@ -25,13 +25,10 @@ html(lang="en")
         div.cafeteriaMenu#cafeteriaMenuJS__lunch
         div.cafeteriaMenu#cafeteriaMenuJS__dinner
       include includes/customPageLinkedBtn.pug
-    div.customOption_miscellaneous.titleBox(style="display:none")
-      div.titleBox_title 잡학 사전
-      include includes/customPageLinkedBtn.pug
     div.customOption_time.titleBox(style="display:none")
       div.titleBox_title.currentTime#currentTimeJS
       include includes/customPageLinkedBtn.pug
-    div.customOption_HanRiver.titleBox(style="display:none")
-      div.titleBox_title 한강 물 온도
+    div.customOption_todayWeather.titleBox(style="display:none")
+      div.titleBox_title.todayWeather#todayWeatherJS
       include includes/customPageLinkedBtn.pug
     script(src="javascripts/home.js")

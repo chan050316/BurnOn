@@ -76,3 +76,8 @@ body .titleBox .cafeteriaMenu {
   line-height: 1.5;
   font-size: 18px;
 }
+
+body .titleBox .todayWeather {
+  line-height: 1.5;
+  font-size: 25px;
+}

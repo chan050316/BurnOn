@@ -22,9 +22,9 @@ html(lang="en")
           div.enterBtn#enterBtn apply
         div.customOption-options
           //- , "한강물 온도 표시"
-          -const options = ["일정 표시", "급식 표시", "현재 시간 표시"]
+          -const options = ["일정 표시", "급식 표시", "현재 시간", "오늘의 날씨"]
           //- , "HanRiver"
-          -const optionsCookieNames = ["showSchedule", "showCafeteria", "time"]
+          -const optionsCookieNames = ["showSchedule", "showCafeteria", "time", "todayWeather"]
           -for(j=0; j < options.length; j++)
             div.customOption-options__box
               div.customOption-options__text #{options[j]}

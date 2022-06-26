@@ -6,6 +6,7 @@ const schedule = document.querySelector("#scheduleJS");
 const cafeteriaMenu = document.querySelector("#cafeteriaMenuJS");
 const cafeteriaMenuLunch = document.querySelector("#cafeteriaMenuJS__lunch");
 const cafeteriaMenuDinner = document.querySelector("#cafeteriaMenuJS__dinner");
+const todayWeather = document.querySelector("#todayWeatherJS");
 
 const getCookie = key => {
   let cookieKey = key + "=";
@@ -50,9 +51,6 @@ function getTime() {
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
 
-  // option-time
-  currentTime.innerText = `${hours}:${minutes}:${seconds}`;
-
   // option-showSchedule
   const distance = countDownDate - date;
   const Dday = Math.ceil(distance / (1000 * 60 * 60 * 24));
@@ -77,7 +75,30 @@ function getTime() {
     cafeteriaMenuLunch.innerHTML = `점심 : ${TodaysMenus.lunch}`;
     cafeteriaMenuDinner.innerHTML = `저녁 : ${TodaysMenus.dinner}`;
   }
+
+  // option-time
+  currentTime.innerText = `${hours}:${minutes}:${seconds}`;
 }
+
+// option-todayWeather
+const API_KEY = "a9974607ee11f242946f6b7e6701d188";
+
+function onGeoOk(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      todayWeather.innerHTML = `Today's weather is ${data.weather[0].main}`;
+    });
+}
+
+function onGeoError() {
+  todayWeather.innerHTML = "Can't find you.";
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
 // titleCover.addEventListener("onload", siteStartAnimation);
 getTime();
