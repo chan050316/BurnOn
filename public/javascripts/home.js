@@ -90,12 +90,13 @@ function onGeoOk(position) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      todayWeather.innerHTML = `Today's weather is ${data.weather[0].main}`;
+      console.log(data);
+      todayWeather.innerHTML = `${data.weather[0].main}`;
     });
 }
 
 function onGeoError() {
-  todayWeather.innerHTML = "Can't find you.";
+  todayWeather.innerHTML = "Please check your permissions";
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
