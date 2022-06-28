@@ -251,9 +251,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .timerBox .inside-CDCircle {
   position: absolute;
   z-index: 10;
-  background-image: url(../images/거꾸로캠퍼스.webp);
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
   height: 363px;
   width: 363px;
   border-radius: 70%;

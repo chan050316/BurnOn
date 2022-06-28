@@ -26,13 +26,7 @@ body .titleBox {
   background-size: cover;
 }
 
-form:nth-child(2) .titleBox {
-  background-image: url(../images/거꾸로캠퍼스.webp);
-}
-form:nth-child(3) .titleBox {
-  background-image: url(../images/거꾸로캠퍼스.webp);
-}
-form:nth-child(4) .titleBox {
+form .titleBox {
   background-image: url(../images/거꾸로캠퍼스.webp);
 }
 
@@ -79,5 +73,5 @@ body .titleBox .cafeteriaMenu {
 
 body .titleBox .todayWeather {
   line-height: 1.5;
-  font-size: 35px;
+  font-size: 30px;
 }

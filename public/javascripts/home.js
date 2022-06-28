@@ -91,7 +91,9 @@ function onGeoOk(position) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      todayWeather.innerHTML = `${data.weather[0].main}`;
+      todayWeather.innerHTML = `${data.weather[0].main.toUpperCase()} | ${
+        data.main.temp
+      }°C | ${data.main.humidity}%`;
     });
 }
 
