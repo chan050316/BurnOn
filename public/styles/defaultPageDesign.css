@@ -197,6 +197,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 
   /* justify-content: flex-start; */
 }
@@ -207,7 +208,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow-y: scroll;
   margin-bottom: 2px;
   background-color: #282828;
 }
@@ -257,7 +257,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow-y: scroll;
   margin-bottom: 2px;
   background-color: #282828;
 }

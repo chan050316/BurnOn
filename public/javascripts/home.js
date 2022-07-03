@@ -8,6 +8,19 @@ const cafeteriaMenuLunch = document.querySelector("#cafeteriaMenuJS__lunch");
 const cafeteriaMenuDinner = document.querySelector("#cafeteriaMenuJS__dinner");
 const todayWeather = document.querySelector("#todayWeatherJS");
 
+// const hangangRiverTmpURL = "http://hangang.dkserver.wo.tc/";
+// fetch(hangangRiverTmpURL, {
+//   mode: "no-cors",
+//   method: "get",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// })
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data);
+//   });
+
 const getCookie = key => {
   let cookieKey = key + "=";
   let result = "";

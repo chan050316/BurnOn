@@ -26,6 +26,9 @@ let alarmNumId = 0;
 let alarm = new Audio(`/alarmSounds/${alarmNames[alarmNumId].innerText}.mp3`);
 alarm.loop = true;
 alarm.volume = 1;
+let testAlarm = new Audio(
+  `/alarmSounds/${alarmNames[alarmNumId].innerText}.mp3`
+);
 
 alarmRadioInputs[0].checked = true;
 
@@ -148,17 +151,17 @@ function backingMusic() {
   // console.log(musicNumId);
 }
 function changingAlarm() {
-  initAlarm();
   alarm = new Audio(`/alarmSounds/${alarmNames[this.id].innerText}.mp3`);
+  initAlarm();
 }
 function checkAlarmCondition() {
   alarmNumId = this.parentNode.previousSibling.id;
   if (
     this.className === "material-icons icon-pause icon-alarmPlayJS icon-play"
   ) {
-    pauseAlarm(alarmNumId);
+    pauseTestAlarm(alarmNumId);
   } else {
-    playingAlarm(alarmNumId);
+    playingTestAlarm(alarmNumId);
   }
 }
 function playingAlarm(inputID) {
@@ -177,9 +180,27 @@ function pauseAlarm(inputID) {
   iconAlarmPlays[inputID].classList.remove("icon-play");
   console.log("pause");
 }
+function playingTestAlarm(inputID) {
+  initAlarm();
+  iconAlarmPlays[inputID].innerHTML = "&#xe034;";
+  testAlarm = new Audio(`/alarmSounds/${alarmNames[inputID].innerText}.mp3`);
+  testAlarm.loop = true;
+  testAlarm.load();
+  testAlarm.play();
+  iconAlarmPlays[inputID].classList.add("icon-play");
+  console.log("play");
+}
+function pauseTestAlarm(inputID) {
+  iconAlarmPlays[inputID].innerHTML = "&#xe037;";
+  testAlarm.pause();
+  iconAlarmPlays[inputID].classList.remove("icon-play");
+  console.log("pause");
+}
 function initAlarm() {
   alarm.pause();
   alarm.currentTime = 0;
+  testAlarm.pause();
+  testAlarm.currentTime = 0;
   iconAlarmPlays.forEach(El => {
     El.innerHTML = "&#xe037;";
     El.classList.remove("icon-play");
