@@ -50,9 +50,8 @@ router.get("/timer", async (req, res) => {
 
 router.get("/pomodoro", async (req, res) => {
   await getQuoteData();
-
-  const cookie = JSON.stringify(req.cookies);
-  if (cookie === "{}") {
+  const cookie = JSON.stringify(req.cookies.json);
+  if (!cookie) {
     console.log("You come this page first time!");
     res.cookie(
       "json",

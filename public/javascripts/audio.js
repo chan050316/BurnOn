@@ -197,8 +197,7 @@ function pauseTestAlarm(inputID) {
   console.log("pause");
 }
 function initAlarm() {
-  alarm.pause();
-  alarm.currentTime = 0;
+  pauseMusic();
   testAlarm.pause();
   testAlarm.currentTime = 0;
   iconAlarmPlays.forEach(El => {

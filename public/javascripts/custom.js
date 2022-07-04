@@ -92,7 +92,6 @@ function clickingBtn() {
 }
 function sendCookie() {
   customOptionOptionsText.forEach(El => {
-    console.log(checkedOption);
     if (El.nextSibling.innerHTML === checkedOption) {
       const value = El.nextSibling.innerHTML;
       console.log(value);
