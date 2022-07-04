@@ -161,6 +161,13 @@ function closeAlarmPage() {
     pomodoroWork(workCDDuration, workCDRotate);
   }
 }
+function keyup(e) {
+  if (e.key === " ") {
+    checkMusicCondition();
+  } else if (e.key === "Enter") {
+    startingPomodoro();
+  }
+}
 
 coverPageBtn.addEventListener("click", closeAlarmPage);
 inputs.forEach(input => {
@@ -171,3 +178,4 @@ introBtn.forEach(btn => {
 });
 iconIntroClose.addEventListener("click", closeIntro);
 inputBtn.addEventListener("click", startingPomodoro);
+window.addEventListener("keyup", keyup);
