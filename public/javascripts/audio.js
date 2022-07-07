@@ -6,7 +6,6 @@ const musicRadioInputs = document.querySelectorAll(".musicRadioInputJS");
 const musicNames = document.querySelectorAll(".musicNameJS");
 const musicEndPoint = document.querySelector("#musicEndPointJS");
 const minuteLineFill = document.querySelector("#minuteLineFillJS");
-const musicDurationsEl = document.querySelectorAll(".musicDurationsElJS");
 const alarmRadioInputs = document.querySelectorAll(".alarmRadioInputJS");
 const alarmNames = document.querySelectorAll(".alarmNameJS");
 const iconAlarmPlays = document.querySelectorAll(".icon-alarmPlayJS");
@@ -14,7 +13,6 @@ const iconAlarmPlays = document.querySelectorAll(".icon-alarmPlayJS");
 let minuteFcCount = 1;
 let intervalAudioJS;
 let audioDuration;
-let musicDurations = [];
 let musicNumId = 0;
 let audio = new Audio("/audios/" + musicNames[musicNumId].innerText + ".mp3");
 
@@ -32,7 +30,6 @@ let testAlarm = new Audio(
 
 alarmRadioInputs[0].checked = true;
 
-let arrayCount = 0;
 musicNames.forEach(El => {
   let music = new Audio("/audios/" + El.innerText + ".mp3");
   music.addEventListener("loadedmetadata", () => {
@@ -41,9 +38,7 @@ musicNames.forEach(El => {
       String(music.duration).indexOf(".")
     );
     const durationRefined = moment.utc(CalcDuration * 1000).format("HH:mm:ss");
-    musicDurations.push(durationRefined);
-    musicDurationsEl[arrayCount].innerText = musicDurations[arrayCount];
-    arrayCount++;
+    El.nextSibling.innerText = durationRefined;
   });
 });
 function showAudioDuration(audioFile) {
@@ -93,7 +88,7 @@ function minuteLineFilling() {
   console.log(minuteFcCount);
   const minuteLineGo = 100 / audioDuration;
   if (100 === minuteLineGo * minuteFcCount) {
-    alert("music done");
+    skipingMusic();
   } else {
     // console.log(minuteLineFill.style.width);
     minuteLineFill.style.width = `${minuteLineGo * minuteFcCount}%`;
@@ -152,7 +147,7 @@ function backingMusic() {
 }
 function changingAlarm() {
   alarm = new Audio(`/alarmSounds/${alarmNames[this.id].innerText}.mp3`);
-  initAlarm();
+  initTestAlarm();
 }
 function checkAlarmCondition() {
   alarmNumId = this.parentNode.previousSibling.id;
@@ -165,7 +160,7 @@ function checkAlarmCondition() {
   }
 }
 function playingAlarm(inputID) {
-  initAlarm();
+  initTestAlarm();
   iconAlarmPlays[inputID].innerHTML = "&#xe034;";
   alarm = new Audio(`/alarmSounds/${alarmNames[inputID].innerText}.mp3`);
   alarm.loop = true;
@@ -177,6 +172,7 @@ function playingAlarm(inputID) {
 function pauseAlarm(inputID) {
   iconAlarmPlays[inputID].innerHTML = "&#xe037;";
   alarm.pause();
+  alarm.currentTime = 0;
   iconAlarmPlays[inputID].classList.remove("icon-play");
   console.log("pause");
 }
@@ -196,10 +192,19 @@ function pauseTestAlarm(inputID) {
   iconAlarmPlays[inputID].classList.remove("icon-play");
   console.log("pause");
 }
-function initAlarm() {
+function initTestAlarm() {
   pauseMusic();
   testAlarm.pause();
   testAlarm.currentTime = 0;
+  iconAlarmPlays.forEach(El => {
+    El.innerHTML = "&#xe037;";
+    El.classList.remove("icon-play");
+  });
+}
+function initAlarm() {
+  pauseMusic();
+  alarm.pause();
+  alarm.currentTime = 0;
   iconAlarmPlays.forEach(El => {
     El.innerHTML = "&#xe037;";
     El.classList.remove("icon-play");
