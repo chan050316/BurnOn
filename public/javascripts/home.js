@@ -40,8 +40,8 @@ const getCookie = key => {
 };
 
 const customOption = getCookie("customOption");
-const countDownName = "최종피드백";
-const countDownDate = new Date("July 8, 2022 00:00:00").getTime();
+const countDownName = "배움장터";
+const countDownDate = new Date("July 14, 2022 00:00:00").getTime();
 const cafeteriaMenuText = cafeteriaMenu.innerHTML;
 
 if (customOption) {
@@ -67,7 +67,11 @@ function getTime() {
   // option-showSchedule
   const distance = countDownDate - date;
   const Dday = Math.ceil(distance / (1000 * 60 * 60 * 24));
-  schedule.innerHTML = `${countDownName} D-${Dday}`;
+  if (Dday === 0) {
+    schedule.innerHTML = `${countDownName} D-day`;
+  } else {
+    schedule.innerHTML = `${countDownName} D-${Dday}`;
+  }
 
   // option-showcafeteriaMenu
   const cafeteriaMenuJson = JSON.parse(cafeteriaMenuText);
