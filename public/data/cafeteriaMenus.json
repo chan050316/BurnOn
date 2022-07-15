@@ -1,22 +1,22 @@
 {
   "Mon": {
-    "lunch": ["오이냉국, 제육볶음, 느타리버섯볶음, 애호박볶음"],
-    "dinner": ["물만두감자국, 깻잎지, 두부조림, 궁채볶음"]
+    "lunch": ["방학"],
+    "dinner": ["방학"]
   },
   "Tue": {
-    "lunch": ["고추장찌개, 치킨까스, 노각무침, 참나물무침"],
-    "dinner": ["배추국, 코다리조림, 가지볶음, 숙주나물무침"]
+    "lunch": ["방학"],
+    "dinner": ["방학"]
   },
   "Wed": {
-    "lunch": ["Online"],
-    "dinner": ["Online"]
+    "lunch": ["방학"],
+    "dinner": ["방학"]
   },
   "Thu": {
-    "lunch": ["Online"],
-    "dinner": ["Online"]
+    "lunch": ["방학"],
+    "dinner": ["방학"]
   },
   "Fri": {
-    "lunch": ["Online"],
-    "dinner": ["Online"]
+    "lunch": ["방학"],
+    "dinner": ["방학"]
   }
 }

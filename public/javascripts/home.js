@@ -40,8 +40,8 @@ const getCookie = key => {
 };
 
 const customOption = getCookie("customOption");
-const countDownName = "배움장터";
-const countDownDate = new Date("July 14, 2022 00:00:00").getTime();
+const countDownName = "개학";
+const countDownDate = new Date("August 16, 2022 00:00:00").getTime();
 const cafeteriaMenuText = cafeteriaMenu.innerHTML;
 
 if (customOption) {
