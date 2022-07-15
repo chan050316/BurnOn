@@ -177,7 +177,7 @@ function pauseAlarm(inputID) {
   console.log("pause");
 }
 function playingTestAlarm(inputID) {
-  initAlarm();
+  initTestAlarm();
   iconAlarmPlays[inputID].innerHTML = "&#xe034;";
   testAlarm = new Audio(`/alarmSounds/${alarmNames[inputID].innerText}.mp3`);
   testAlarm.loop = true;
