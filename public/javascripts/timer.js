@@ -132,6 +132,7 @@ function countingHour() {
   countHourNum++;
   if (countHourNum - 1 == timerNumValue[0]) {
     initAlarm(); //in audio.js
+    initTestAlarm(); //in audio.js
     alarm.play(); //in audio.js
     timerEnding();
     openAlarmPage();

@@ -20,6 +20,7 @@ let workCDDuration;
 let workCDRotate;
 let PomodoroCDDuration;
 let PomodoroCDRotate;
+let audioPlayingState = false;
 
 const INTROTEXTS = [
   "뽀모도로가 처음이신가요?",
@@ -147,14 +148,23 @@ function timerinit() {
   openAlarmPage();
 }
 function openAlarmPage() {
-  alarm.play();
-  pauseMusic(); //in audio.js
+  if (!audio.paused) {
+    console.log(1);
+    audioPlayingState = true;
+  }
+  initAlarm(); //in audio.js
+  initTestAlarm(); //in audio.js
+  alarm.play(); //in audio.js
   coverPageEndTimer.style.display = "flex";
 }
 function closeAlarmPage() {
   coverPageEndTimer.style.display = "none";
   alarm.pause();
   alarm.currentTime = 0;
+  console.log(audioPlayingState);
+  if (audioPlayingState === true) {
+    audio.play();
+  }
   if (timeCondition.innerHTML === "Work") {
     pomodoroBreak(PomodoroCDDuration, PomodoroCDRotate);
   } else if (timeCondition.innerHTML === "Break") {
